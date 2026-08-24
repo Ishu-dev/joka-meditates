@@ -13,6 +13,15 @@ export default function Footer() {
             joka-meditates@email.iimcal.ac.in
           </a>
         </p>
+        <p className="mt-1">
+          <a
+            href="https://www.instagram.com/joka_meditates/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram · @joka_meditates
+          </a>
+        </p>
         <p className="mt-4 text-xs">
           © {new Date().getFullYear()} Joka Meditates.{" "}
           <Link href="/issues" className="hover:text-accent">

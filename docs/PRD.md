@@ -213,7 +213,7 @@ The graphics library and team headshots are already on disk and scanned (invento
 - [ ] `og-image.png` (1200×630) and `favicon.ico` for `/public`, the og-image can be generated with `@vercel/og` from the logo and tokens instead of hand-made
 - [ ] Real session schedule (day, time, location) for `/join` and the site footer, this was also a gap in the newsletter issues
 - [ ] **WhatsApp link** for `/join` (confirm this still applies)
-- [ ] ~~Instagram link~~ drop this from scope. IG was permanently disabled per earlier context; don't let the agent add a dead link because an old PRD mentioned it.
+- [x] Instagram link: the @joka_meditates handle is live again as of 2026-08-25 (earlier drafts dropped it because the account was disabled; that is no longer true). Linked in the footer and `/join`.
 
 ### 11.1 Intake and processing workflow
 

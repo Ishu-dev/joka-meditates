@@ -235,7 +235,7 @@ Graphics and team headshots are already on disk (`graphics/`, `team/`) and inven
 5. `og-image.png` (1200x630) and `favicon.ico` in `/public/brand`, the og-image can be generated with `@vercel/og` from the logo and tokens
 6. Real session schedule (day, time, location) for `/join` and the footer
 
-Do **not** add an Instagram link anywhere. IG is permanently disabled; an earlier draft of this project mentioned one, it no longer applies.
+Update 2026-08-25: Instagram is back. The handle @joka_meditates is live again (link verified), so the earlier "IG permanently disabled, never link it" rule is reversed. Link it in the footer and `/join`.
 
 ## Working style notes
 

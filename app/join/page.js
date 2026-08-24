@@ -31,6 +31,17 @@ export default function JoinPage() {
           Write to us
         </a>
       </div>
+      <p className="mt-6 text-sm text-ink-soft">
+        Also on{" "}
+        <a
+          href="https://www.instagram.com/joka_meditates/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-link hover:text-accent"
+        >
+          Instagram @joka_meditates
+        </a>
+      </p>
     </div>
   );
 }
