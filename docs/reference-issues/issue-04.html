@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Third Quotient · Joka Meditates Issue 04</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Playfair+Display:ital,wght@1,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f2ea;
+    --ink:#26261f;
+    --ink-soft:#585848;
+    --accent:#c2447e;
+    --accent-soft:#fbe4ee;
+    --deep:#2f5d54;
+    --deep-soft:#e2ede9;
+    --rule:#d9d4c3;
+    --link:#6b4f8f;
+    --radius:14px;
+  }
+  /* System preference applies automatically, unless the reader has
+     manually forced light mode with the toggle below. */
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#191a17;
+      --ink:#ece8dc;
+      --ink-soft:#a6a394;
+      --accent:#f2a6c6;
+      --accent-soft:#39202b;
+      --deep:#8fc4b6;
+      --deep-soft:#1f2f2b;
+      --rule:#383730;
+      --link:#b79fd6;
+    }
+  }
+  /* Manual override, wins regardless of system preference. */
+  :root[data-theme="dark"]{
+    --paper:#191a17;
+    --ink:#ece8dc;
+    --ink-soft:#a6a394;
+    --accent:#f2a6c6;
+    --accent-soft:#39202b;
+    --deep:#8fc4b6;
+    --deep-soft:#1f2f2b;
+    --rule:#383730;
+    --link:#b79fd6;
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; scroll-behavior:smooth; }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'IBM Plex Sans', -apple-system, sans-serif;
+    line-height:1.65; font-size:17px;
+  }
+
+  .progress-bar{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background:var(--accent); z-index:100; transition:width .12s linear;
+  }
+
+  .wrap{ max-width:640px; margin:0 auto; padding:48px 24px 64px; }
+
+  header{ text-align:center; margin-bottom:20px; }
+  .logo-badge{ display:inline-block; margin-bottom:16px; }
+  .logo-badge img{ width:150px; height:auto; margin:0 auto; }
+  .logo-badge img.logo-light-variant{ display:block; }
+  .logo-badge img.logo-dark-variant{ display:none; }
+  @media (prefers-color-scheme: dark){
+    html:not([data-theme="light"]) .logo-badge img.logo-light-variant{ display:none; }
+    html:not([data-theme="light"]) .logo-badge img.logo-dark-variant{ display:block; }
+  }
+  html[data-theme="dark"] .logo-badge img.logo-light-variant{ display:none; }
+  html[data-theme="dark"] .logo-badge img.logo-dark-variant{ display:block; }
+  .mark{
+    font-size:13px; letter-spacing:.06em; color:var(--ink-soft);
+    text-transform:uppercase; margin-bottom:18px;
+  }
+  h1{
+    font-family:'Cormorant Garamond', Georgia, serif; font-weight:600;
+    font-size:clamp(36px, 8vw, 52px); line-height:1.05;
+    margin:0 0 14px; letter-spacing:-.01em;
+  }
+  .issue-sub{
+    font-family:'Cormorant Garamond', Georgia, serif; font-style:italic;
+    font-size:18px; color:var(--ink-soft); margin-bottom:16px; max-width:420px;
+    margin-left:auto; margin-right:auto;
+  }
+  .issue-badge{
+    display:inline-block; background:var(--accent); color:var(--paper);
+    font-weight:700; font-size:15px; letter-spacing:.1em;
+    text-transform:uppercase; padding:9px 24px; border-radius:999px;
+  }
+
+  .quotient-row{
+    display:flex; justify-content:center; align-items:center;
+    gap:9px; margin-top:28px;
+  }
+  .quotient-pill{
+    font-size:12px; font-weight:700; letter-spacing:.08em;
+    padding:6px 14px; border-radius:999px;
+    border:1.5px solid var(--rule); color:var(--ink-soft);
+  }
+  .quotient-pill.active{ border-color:var(--accent); color:var(--accent); }
+  .quotient-dot{ width:4px; height:4px; border-radius:50%; background:var(--rule); }
+
+  .header-controls{
+    display:flex; justify-content:center; gap:10px; margin-top:28px;
+  }
+  .sound-toggle, .theme-toggle{
+    background:transparent; border:1.5px solid var(--rule);
+    color:var(--ink-soft); border-radius:999px;
+    padding:7px 18px; font-family:'IBM Plex Sans', sans-serif;
+    font-size:12px; letter-spacing:.03em; cursor:pointer;
+  }
+  .sound-toggle:active, .theme-toggle:active{ opacity:.8; }
+
+  .fade{ opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease; }
+  .fade.visible{ opacity:1; transform:none; }
+
+  section{ margin-bottom:54px; }
+  .kicker{
+    font-size:11px; font-weight:700; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--deep); margin-bottom:8px;
+  }
+  h2{
+    font-family:'Cormorant Garamond', Georgia, serif; font-weight:600;
+    font-size:30px; margin:0 0 10px; color:var(--accent); line-height:1.15;
+  }
+  .section-intro{ color:var(--ink-soft); font-size:15px; margin:0 0 22px; }
+  p{ margin:0 0 16px; }
+  a{ color:var(--link); }
+
+  .lede{
+    font-size:16.5px; color:var(--ink-soft);
+    max-width:470px; margin:0 auto 8px; text-align:center;
+  }
+
+  /* Thesis quote: the one line meant to stand apart from everything else,
+     its own font family, well beyond the size of any other text on the page. */
+  .thesis-quote{
+    font-family:'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    font-style:italic; font-weight:700;
+    font-size:clamp(30px, 8vw, 46px);
+    line-height:1.22;
+    color:var(--accent);
+    text-align:center;
+    max-width:480px;
+    margin:30px auto 32px;
+  }
+
+  .card{
+    background:var(--accent-soft); border-radius:var(--radius);
+    padding:20px 22px; margin-bottom:14px;
+  }
+  .card-deep{ background:var(--deep-soft); }
+  .card-title{ font-weight:600; font-size:16px; margin-bottom:4px; color:var(--ink); }
+  .card-body{ font-size:15px; color:var(--ink-soft); margin:0; }
+
+  .prose-block{
+    background:var(--deep-soft); border-radius:var(--radius);
+    padding:26px 26px 22px;
+  }
+  .prose-block p:last-child{ margin-bottom:0; }
+
+  .note{
+    font-size:13.5px; color:var(--ink-soft);
+    border-left:3px solid var(--rule);
+    padding:2px 0 2px 14px; margin-top:18px;
+  }
+
+  .rule{ border:none; border-top:1px solid var(--rule); margin:54px 0; }
+
+  .playlist{
+    display:block; text-decoration:none;
+    background:var(--accent-soft); border-radius:var(--radius);
+    padding:18px 22px; margin-bottom:12px;
+    border:1.5px solid transparent; transition:border-color .2s ease;
+  }
+  .playlist:hover{ border-color:var(--accent); }
+  .playlist-title{ font-weight:600; font-size:16px; color:var(--ink); margin-bottom:2px; }
+  .playlist-meta{ font-size:14px; color:var(--link); }
+
+  /* Nadi Shodhana widget */
+  .breathe-wrap{
+    display:flex; flex-direction:column; align-items:center;
+    margin-top:26px; padding:34px 20px;
+    background:var(--deep-soft); border-radius:var(--radius);
+  }
+  .cycle-picker{
+    display:flex; align-items:center; justify-content:center;
+    gap:12px; margin-bottom:24px;
+  }
+  .cycle-picker label{
+    font-size:12px; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .cycle-picker input{
+    width:64px; padding:8px 10px; text-align:center;
+    border:1.5px solid var(--rule); border-radius:8px;
+    background:var(--paper); color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif; font-size:15px; font-weight:600;
+  }
+  .cycle-hint{ font-size:11px; color:var(--ink-soft); }
+  .breathe-circle{
+    width:130px; height:130px; border-radius:50%;
+    background:var(--deep);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--paper); font-weight:600; font-size:16px;
+    transition:transform 4s ease-in-out; transform:scale(0.7);
+  }
+  .breathe-label{
+    margin-top:18px; font-size:13px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); text-align:center;
+  }
+  .breathe-side{
+    margin-top:4px; font-size:14px; color:var(--ink); text-align:center;
+    min-height:20px;
+  }
+  .breathe-counter{
+    margin-top:10px; font-size:12px; color:var(--ink-soft);
+    letter-spacing:.03em; min-height:16px;
+  }
+  .breathe-btn{
+    margin-top:16px; background:var(--deep); color:var(--paper);
+    border:none; border-radius:999px; padding:10px 26px;
+    font-family:'IBM Plex Sans', sans-serif; font-size:14px;
+    font-weight:600; cursor:pointer;
+  }
+  .breathe-btn:active{ opacity:.85; }
+
+  /* Verse plate: an inscription, not a card. Rules above and below,
+     no fill color, meant to feel like a different order of content. */
+  .verse{
+    text-align:center; padding:8px 12px 30px;
+    border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
+    margin-bottom:28px;
+  }
+  .verse-source{
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--deep); font-weight:700; margin:22px 0 16px;
+  }
+  .verse-devanagari{
+    font-size:clamp(20px, 5.2vw, 26px);
+    color:var(--ink); line-height:1.85; margin-bottom:14px;
+  }
+  .verse-translit{
+    font-family:'Cormorant Garamond', Georgia, serif; font-style:italic;
+    font-size:15px; color:var(--ink-soft); margin-bottom:20px; letter-spacing:.01em;
+  }
+  .verse-sense-label{
+    font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:6px;
+  }
+  .verse-sense{ font-size:15.5px; color:var(--ink); max-width:400px; margin:0 auto; }
+
+  footer{ text-align:center; margin-top:56px; }
+  .logo-footer-badge{ display:inline-block; margin-bottom:12px; }
+  .logo-footer-badge img{ width:56px; height:auto; opacity:.95; margin:0 auto; }
+  .logo-footer-badge img.logo-light-variant{ display:block; }
+  .logo-footer-badge img.logo-dark-variant{ display:none; }
+  @media (prefers-color-scheme: dark){
+    html:not([data-theme="light"]) .logo-footer-badge img.logo-light-variant{ display:none; }
+    html:not([data-theme="light"]) .logo-footer-badge img.logo-dark-variant{ display:block; }
+  }
+  html[data-theme="dark"] .logo-footer-badge img.logo-light-variant{ display:none; }
+  html[data-theme="dark"] .logo-footer-badge img.logo-dark-variant{ display:block; }
+  .footer-note{ font-size:13px; color:var(--ink-soft); }
+
+  @media (max-width:480px){
+    .wrap{ padding:36px 18px 48px; }
+    h1{ font-size:33px; }
+    h2{ font-size:26px; }
+  }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<div class="wrap">
+
+  <header>
+    <div class="logo-badge">
+      <img class="logo-light-variant" src="data:image/png;base64,<!-- LOGO_IMAGE_DATA_STRIPPED_FOR_REFERENCE -->" alt="Joka Meditates">
+      <img class="logo-dark-variant" src="data:image/png;base64,<!-- LOGO_IMAGE_DATA_STRIPPED_FOR_REFERENCE -->" alt="Joka Meditates">
+    </div>
+    <div class="mark">Joka Meditates · MBA, MBA Ex, PGDBA, PhD, PGPEX-VLM · IIM Calcutta</div>
+    <h1>The Third Quotient</h1>
+    <div class="issue-sub">This campus trains you hard for one kind of intelligence. Nobody grades the other two.</div>
+    <div class="issue-badge">Issue 04</div>
+    <div class="quotient-row">
+      <span class="quotient-pill">IQ</span>
+      <span class="quotient-dot"></span>
+      <span class="quotient-pill active">EQ</span>
+      <span class="quotient-dot"></span>
+      <span class="quotient-pill active">SQ</span>
+    </div>
+    <div class="header-controls">
+      <button class="sound-toggle" id="soundToggle" onclick="toggleSound()">Sound on</button>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">Dark mode</button>
+    </div>
+  </header>
+
+  <section class="fade">
+    <p class="lede">Every case, every cold call, every mid-term here is built to sharpen one thing. It matters. It just isn't the only thing that matters.</p>
+    <div class="thesis-quote">Control the mind.<br>Don't let the mind control you.</div>
+    <p class="lede">The other two intelligences don't show up on a transcript. They show up in the interview, the rejection, the 2am spiral before a submission. This issue is about training for those too.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="kicker">Framework</div>
+    <h2>The Three Quotients</h2>
+    <div class="card">
+      <div class="card-title">IQ</div>
+      <p class="card-body">Logic, pattern, recall. The kind of intelligence a classroom is built to measure.</p>
+    </div>
+    <div class="card card-deep">
+      <div class="card-title">EQ</div>
+      <p class="card-body">Reading and regulating emotion, yours and the room's. It's the difference between a case interview that goes well and one that doesn't, and it's usually the real cause when a team falls apart, not the deadline. One way to build it: name what you're feeling before you react to it. That half-second gap is most of the skill.</p>
+    </div>
+    <div class="card card-deep">
+      <div class="card-title">SQ</div>
+      <p class="card-body">The least familiar of the three. Not religion. The capacity to sit with uncertainty without needing to resolve it immediately, and to know what you're actually optimizing for beyond the next number on a stipend letter. Hardest to explain, most useful under pressure.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="kicker">Input</div>
+    <h2>Your Feed Is Training Data</h2>
+    <div class="prose-block">
+      <p>You audit your diet this month already. Audit what you follow too. What shows up in your feed daily becomes the default shape of your thoughts, whether you notice it happening or not.</p>
+      <p>Unfollow whatever leaves you comparing or resentful, even if it's entertaining in the moment. Follow what leaves you calmer or sharper. Put good out where you can, it tends to find its way back, not as karma bookkeeping, just as how people and rooms actually work.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="kicker">Body</div>
+    <h2>Move, Even for Ten Minutes</h2>
+    <div class="prose-block">
+      <p>Start small. Ten minutes, a short walk, a stretch, anything. Don't wait for the ideal routine before beginning, the bar for day one should be embarrassingly low.</p>
+      <p>You'll regret every week you didn't start, once you're a few weeks into actually doing it. That's the whole pitch. Start, then build from there.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="kicker">Practice</div>
+    <h2>Nadi Shodhana</h2>
+    <p class="section-intro">Alternate nostril breathing, the classical technique for balancing exactly the split this issue is about, one side active, one side still.</p>
+    <p>Right thumb closes the right nostril, breathe in left. Close left with the ring finger, release right, breathe out right. In right, close right, breathe out left. That's one round.</p>
+
+    <div class="breathe-wrap">
+      <div class="cycle-picker">
+        <label for="cycleCount">Cycles</label>
+        <input type="number" id="cycleCount" min="5" max="50" step="5" value="10">
+      </div>
+      <div class="cycle-hint">Min 5, max 50</div>
+      <div class="breathe-circle" id="nadiCircle" style="margin-top:18px;">Ready</div>
+      <div class="breathe-label" id="nadiLabel">Press start when you're ready</div>
+      <div class="breathe-side" id="nadiSide"></div>
+      <div class="breathe-counter" id="nadiCounter"></div>
+      <button class="breathe-btn" id="nadiBtn">Start</button>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="kicker">Listen</div>
+    <h2>The Playlists</h2>
+    <p class="section-intro">The same three from last issue, still growing, and the guided breathwork one pairs directly with the practice above.</p>
+    <a class="playlist" href="https://music.youtube.com/playlist?list=PLEqYjzM2FjVM&si=KBvfNunLYqFNPGzt" target="_blank" rel="noopener">
+      <div class="playlist-title">Mantras &amp; Devotional</div>
+      <div class="playlist-meta">Rudrashtakam, Shiv Tandav Stotram and more · YouTube Music</div>
+    </a>
+    <a class="playlist" href="https://music.youtube.com/playlist?list=PLdxHZY2YT42g&si=cSGU7hKTYdH975dJ" target="_blank" rel="noopener">
+      <div class="playlist-title">Meditation Music</div>
+      <div class="playlist-meta">For sitting, studying, or falling asleep to · YouTube Music</div>
+    </a>
+    <a class="playlist" href="https://music.youtube.com/playlist?list=PLK6VTdpPoDXg&si=MFNllPIynSFGrZ4k" target="_blank" rel="noopener">
+      <div class="playlist-title">Guided Breathwork</div>
+      <div class="playlist-meta">Pranayama, Kapalabhati, and Yoga Nidra sessions · YouTube Music</div>
+    </a>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="kicker">Text</div>
+    <h2>Two Verses</h2>
+    <div class="verse">
+      <div class="verse-source">Bhagavad Gita 6.5</div>
+      <div class="verse-devanagari">उद्धरेदात्मनात्मानं नात्मानमवसादयेत् ।<br>आत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः ॥</div>
+      <div class="verse-translit">uddhared ātmanātmānaṁ nātmānam avasādayet<br>ātmaiva hyātmano bandhur ātmaiva ripur ātmanaḥ</div>
+      <div class="verse-sense-label">Sense</div>
+      <div class="verse-sense">You are your own ally, or your own opponent. No one else is deciding which.</div>
+    </div>
+    <div class="verse">
+      <div class="verse-source">Bhagavad Gita 2.47</div>
+      <div class="verse-devanagari">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।</div>
+      <div class="verse-translit">karmaṇy evādhikāras te mā phaleṣu kadācana</div>
+      <div class="verse-sense-label">Sense</div>
+      <div class="verse-sense">The work is yours. The outcome was never fully in your hands, so don't grip it that hard.</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo-footer-badge">
+      <img class="logo-light-variant" src="data:image/png;base64,<!-- LOGO_IMAGE_DATA_STRIPPED_FOR_REFERENCE -->" alt="Joka Meditates">
+      <img class="logo-dark-variant" src="data:image/png;base64,<!-- LOGO_IMAGE_DATA_STRIPPED_FOR_REFERENCE -->" alt="Joka Meditates">
+    </div>
+    <div class="footer-note">Joka Meditates, IIM Calcutta, twice a week, a little at a time.</div>
+  </footer>
+
+</div>
+
+<script>
+  /* ---------- Theme: system preference by default, manual override
+     persisted per-browser. Also swaps the logo. ---------- */
+  (function(){
+    const themeBtn = document.getElementById('themeToggle');
+
+    function systemPrefersDark(){
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    function isCurrentlyDark(){
+      const forced = document.documentElement.getAttribute('data-theme');
+      if (forced === 'dark') return true;
+      if (forced === 'light') return false;
+      return systemPrefersDark();
+    }
+    function updateButtonLabel(){
+      themeBtn.textContent = isCurrentlyDark() ? 'Light mode' : 'Dark mode';
+    }
+    function applyTheme(theme){
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem('jm-theme', theme); } catch(e){}
+      updateButtonLabel();
+    }
+    window.toggleTheme = function(){
+      applyTheme(isCurrentlyDark() ? 'light' : 'dark');
+    };
+
+    let saved = null;
+    try { saved = localStorage.getItem('jm-theme'); } catch(e){}
+    if (saved === 'light' || saved === 'dark'){
+      document.documentElement.setAttribute('data-theme', saved);
+    }
+    updateButtonLabel();
+  })();
+
+  /* ---------- Reading progress ---------- */
+  const progressBar = document.getElementById('progressBar');
+  window.addEventListener('scroll', function(){
+    const h = document.documentElement;
+    const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    progressBar.style.width = Math.min(scrolled * 100, 100) + '%';
+  }, { passive:true });
+
+  /* ---------- Fade in on scroll ---------- */
+  (function(){
+    const faders = document.querySelectorAll('.fade');
+    if (!('IntersectionObserver' in window)){
+      faders.forEach(function(el){ el.classList.add('visible'); });
+      return;
+    }
+    const obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+    faders.forEach(function(el){ obs.observe(el); });
+  })();
+
+  /* ---------- Sound ---------- */
+  let soundEnabled = true;
+  let audioCtx = null;
+
+  function getAudioCtx(){
+    if (!audioCtx){
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return null;
+      audioCtx = new Ctx();
+    }
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    return audioCtx;
+  }
+
+  function playTone(freq, duration, volume){
+    if (!soundEnabled) return;
+    const ctx = getAudioCtx();
+    if (!ctx) return;
+    try {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(volume || 0.06, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + duration);
+    } catch(e){}
+  }
+
+  function playChime(){
+    if (!soundEnabled) return;
+    playTone(523.25, 0.9, 0.08);
+    setTimeout(function(){ playTone(659.25, 1.2, 0.07); }, 200);
+  }
+
+  function toggleSound(){
+    soundEnabled = !soundEnabled;
+    document.getElementById('soundToggle').textContent = soundEnabled ? 'Sound on' : 'Sound off';
+    if (soundEnabled) getAudioCtx();
+  }
+
+  /* ---------- Nadi Shodhana widget ---------- */
+  (function(){
+    const nadiPhases = [
+      { label:'Inhale', side:'Left nostril open',   duration:4, scale:1,   tone:440 },
+      { label:'Hold',   side:'Both nostrils closed', duration:2, scale:1,   tone:null },
+      { label:'Exhale', side:'Right nostril open',  duration:4, scale:0.7, tone:330 },
+      { label:'Hold',   side:'Both nostrils closed', duration:2, scale:0.7, tone:null },
+      { label:'Inhale', side:'Right nostril open',  duration:4, scale:1,   tone:440 },
+      { label:'Hold',   side:'Both nostrils closed', duration:2, scale:1,   tone:null },
+      { label:'Exhale', side:'Left nostril open',   duration:4, scale:0.7, tone:330 },
+      { label:'Hold',   side:'Both nostrils closed', duration:2, scale:0.7, tone:null }
+    ];
+
+    const circle = document.getElementById('nadiCircle');
+    const label = document.getElementById('nadiLabel');
+    const side = document.getElementById('nadiSide');
+    const counter = document.getElementById('nadiCounter');
+    const btn = document.getElementById('nadiBtn');
+    const cycleInput = document.getElementById('cycleCount');
+
+    let running = false, phaseIdx = 0, cycleNum = 1, totalCycles = 10, timeoutId = null;
+
+    function runPhase(){
+      const p = nadiPhases[phaseIdx];
+      circle.style.transitionDuration = p.duration + 's';
+      circle.style.transform = 'scale(' + p.scale + ')';
+      circle.textContent = p.label;
+      label.textContent = p.label + ' · ' + p.duration + 's';
+      side.textContent = p.side;
+      counter.textContent = 'Cycle ' + cycleNum + ' of ' + totalCycles;
+      if (p.tone) playTone(p.tone, Math.min(p.duration * 0.5, 1.1), 0.05);
+
+      const nextIdx = (phaseIdx + 1) % nadiPhases.length;
+      if (nextIdx === 0 && cycleNum >= totalCycles){
+        timeoutId = setTimeout(function(){ stopWidget(true); }, p.duration * 1000);
+        return;
+      }
+      if (nextIdx === 0) cycleNum++;
+      phaseIdx = nextIdx;
+      timeoutId = setTimeout(runPhase, p.duration * 1000);
+    }
+
+    function stopWidget(completed){
+      running = false;
+      btn.textContent = 'Start';
+      clearTimeout(timeoutId);
+      circle.style.transitionDuration = '.6s';
+      circle.style.transform = 'scale(0.7)';
+      circle.textContent = completed ? 'Done' : 'Ready';
+      label.textContent = completed ? 'Cycle set complete' : "Press start when you're ready";
+      side.textContent = '';
+      counter.textContent = completed ? (totalCycles + ' cycles complete') : '';
+      if (completed) playChime();
+      cycleInput.disabled = false;
+    }
+
+    btn.addEventListener('click', function(){
+      if (running){
+        stopWidget(false);
+      } else {
+        let v = parseInt(cycleInput.value, 10);
+        if (isNaN(v)) v = 10;
+        v = Math.max(5, Math.min(50, v));
+        cycleInput.value = v;
+        totalCycles = v;
+        cycleInput.disabled = true;
+        getAudioCtx();
+        running = true;
+        btn.textContent = 'Stop';
+        phaseIdx = 0;
+        cycleNum = 1;
+        runPhase();
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,660 @@
+[
+  {
+    "slug": "issue-01",
+    "number": 1,
+    "title": "You have ten minutes.",
+    "subtitle": null,
+    "published_at": null,
+    "content": [
+      {
+        "type": "heading",
+        "text": "You have ten minutes."
+      },
+      {
+        "type": "lede",
+        "text": "Whichever program brought you to Joka, the pace right now is the same for everyone. SIP season is on for the first years, section wars have the whole campus picking sides, and sector prep sessions start in a few days. The pause is not something you find time for once this settles, because it does not settle. You take it, or you do not."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Try This, Breath Awareness"
+      },
+      {
+        "type": "text",
+        "text": "No venue, no mat, no five minutes to spare needed. Sit where you already are. This is box breathing, in for four, hold for four, out for four, hold for four. Press begin and follow the circle, not the clock."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Five Minute Sit"
+      },
+      {
+        "type": "text",
+        "text": "No technique this time, just time. Set it, close your eyes, let thoughts pass without following them. Notice how you feel before you pick your phone back up."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Before The Room That Matters"
+      },
+      {
+        "type": "text",
+        "text": "SIP interview, sector prep session, or walking onto the court for section wars, your body is already deciding how the next twenty minutes go before you do. Three small moves change that. Click through them once, then use them for real when it counts."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "On Section Wars"
+      },
+      {
+        "type": "text",
+        "text": "Some sections are winning right now, some are not, and both of those things will be forgotten by the time End Terms arrive. What tends to stay is how you showed up, cheered for a teammate, or kept trying after a bad set. Play hard, lose well if you have to, and remember the score is not the point of a team sport, the team is."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "This Week's Practice"
+      },
+      {
+        "type": "text",
+        "text": "Three short guided videos, use whichever fits your day."
+      },
+      {
+        "type": "playlist",
+        "title": "Watch",
+        "meta": "",
+        "href": "https://youtu.be/blbv5UTBCGg"
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Myth vs Fact"
+      },
+      {
+        "type": "text",
+        "text": "Meditation means switching your mind off completely."
+      },
+      {
+        "type": "text",
+        "text": "Meditation is noticing a thought arrived, and not following it. The mind wandering is not failure, it is the rep."
+      },
+      {
+        "type": "note",
+        "text": "Joka Meditates, IIM Calcutta, twice a week, a little at a time."
+      }
+    ]
+  },
+  {
+    "slug": "issue-02",
+    "number": 2,
+    "title": "One Kilometer to Go",
+    "subtitle": null,
+    "published_at": null,
+    "content": [
+      {
+        "type": "heading",
+        "text": "One Kilometer to Go"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Timing mat",
+          "+1KM, where you actually finish"
+        ]
+      },
+      {
+        "type": "lede",
+        "text": "This one's late. Section wars are already old news by now, most of you cooled down days ago, found your regular heart rate again. Fair."
+      },
+      {
+        "type": "quote",
+        "text": "The timing mat catches your feet.It doesn't catch your nervous system."
+      },
+      {
+        "type": "lede",
+        "text": "That keeps running a while after you've stopped: heart still up, breath still short, mind still replaying the last two hundred meters. Same tools work for any workout, any time your body's buzzing louder than your mind can keep up with. Keep this one around."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Loosen the Legs"
+      },
+      {
+        "type": "text",
+        "text": "Four stretches, runner specific. Look up the names if you need a visual, plenty of good demonstrations out there."
+      },
+      {
+        "type": "text",
+        "text": "Standing, heel to hip. Keeps the front of the thigh from locking up after all that striding."
+      },
+      {
+        "type": "text",
+        "text": "Hinge at the hips, let the head hang. Releases the back of the leg, where sprint fatigue lands hardest."
+      },
+      {
+        "type": "text",
+        "text": "Seated, legs straight, spine tall. Resets the lower back after the forward lean of a hard run."
+      },
+      {
+        "type": "text",
+        "text": "Hip opener, lying down. Undoes the tightness that builds in the hips from repetitive strides."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Bring the Heart Down"
+      },
+      {
+        "type": "text",
+        "text": "Breath is the fastest lever you have over an elevated heart rate. Two ways in."
+      },
+      {
+        "type": "text",
+        "text": "Breathe in for four counts, out for six. The longer exhale is what tells your nervous system the sprint is over. Six rounds is about a minute."
+      },
+      {
+        "type": "breathing",
+        "phases": [
+          {
+            "label": "Breathe in",
+            "duration": 4,
+            "scale": 1,
+            "tone": 440
+          },
+          {
+            "label": "Breathe out",
+            "duration": 6,
+            "scale": 0.7,
+            "tone": 330
+          }
+        ],
+        "cycles": 4
+      },
+      {
+        "type": "text",
+        "text": "In for four, hold for four, out for four, hold for four. A steady square, useful when the adrenaline is still loud and you need something to count instead of think."
+      },
+      {
+        "type": "breathing",
+        "phases": [
+          {
+            "label": "Breathe in",
+            "duration": 4,
+            "scale": 1,
+            "tone": 440
+          },
+          {
+            "label": "Hold",
+            "duration": 4,
+            "scale": 1
+          },
+          {
+            "label": "Breathe out",
+            "duration": 4,
+            "scale": 0.72,
+            "tone": 330
+          },
+          {
+            "label": "Hold",
+            "duration": 4,
+            "scale": 0.72
+          }
+        ],
+        "cycles": 4
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Sit With It"
+      },
+      {
+        "type": "text",
+        "text": "Find the bench. Or the grass. Anywhere you can sit without needing to hold a plank while you do it. Five minutes. Eyes open or closed, your call. First, notice the body exactly as it is. Heart still a little quick. Legs heavy in a good way. Sweat cooling on the back of your neck. Don't change any of it, just notice it's there. Then notice the breath. Not the box, not the count, just the breath as it's already moving, in, out, whatever rhythm it's found on its own. Now let the next thing go. Next match, next class, next deadline, whatever is queued up in your head, let it wait outside for five minutes. It'll still be there. Right now there's just this body, on this bench, breathing."
+      },
+      {
+        "type": "timer",
+        "seconds": 60,
+        "label": "Timer"
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Keep This One Forever"
+      },
+      {
+        "type": "text",
+        "text": "Everything above is for right after a run. This one is for whenever, an interview waiting room, 2am, five minutes before you walk into a room that matters."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Things you can seeReally look, don't just glance. A leaf, a light, a crack in the pavement.",
+          "Things you can feelThe bench under you, fabric against skin, the ground under your feet.",
+          "Things you can hearTraffic, wind, your own breathing."
+        ]
+      },
+      {
+        "type": "text",
+        "text": "By the time you've found all ten, your mind has stopped spinning and come back into the room. This one works anywhere. Keep it."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "note",
+        "text": "None of this expires when the section war ends. Bring it to your next run, your next workout, your next hard morning. And if you'd rather sit with people than sit alone, we're around twice a week, come find us."
+      }
+    ]
+  },
+  {
+    "slug": "issue-03",
+    "number": 3,
+    "title": "The Month of Restraint",
+    "subtitle": "Saavan asks you to do less. That turns out to be the hard part.",
+    "published_at": null,
+    "content": [
+      {
+        "type": "heading",
+        "text": "The Month of Restraint"
+      },
+      {
+        "type": "lede",
+        "text": "Shravan arrives with the rain and a strange instruction: eat lighter, sit longer, want less. In a term where everything is asking for more of you, that lands oddly."
+      },
+      {
+        "type": "quote",
+        "text": "The month isn't asking you to add a practice.It's asking you to subtract noise."
+      },
+      {
+        "type": "lede",
+        "text": "Below: why the season works this way, what to eat and skip, two asanas, a breathing visualization, playlists to sit with, and an argument for being bored on purpose."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Why Saavan Works This Way"
+      },
+      {
+        "type": "text",
+        "text": "The monsoon logic is older than any of us and fairly practical underneath the ritual. Humidity climbs, sunlight drops, and digestion genuinely slows. Traditional practice reads that as a signal: this is not the season for heavy food, hard travel, or scattered energy. So the month turns inward instead. Lighter meals. More chanting. More sitting. Less of everything that pulls outward. Shravan is the one month in the calendar that treats restraint as the practice itself, rather than as preparation for something else. You do not need to hold any particular belief for the structure to be useful. A month of deliberately doing less, right as the term gets heaviest, is a good idea on its own terms."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Fasting, Honestly"
+      },
+      {
+        "type": "text",
+        "text": "Saavan fasting is observance before it is anything else. Mondays are the traditional day, and the forms people keep vary widely."
+      },
+      {
+        "type": "text",
+        "text": "Some keep a full fast on Mondays. Some eat one simple meal. Some only drop grains, or salt, or anything non-vegetarian for the month. All of these count. There is no leaderboard here."
+      },
+      {
+        "type": "text",
+        "text": "The point is not the empty stomach. It is noticing how loudly the body asks, how quickly the mind negotiates, and choosing anyway. That noticing is the practice. The food is just the setting."
+      },
+      {
+        "type": "text",
+        "text": "If a food fast isn't for you, keep the shape and change the object. A day without screens after 9pm. A day without complaining. Same muscle, different weight."
+      },
+      {
+        "type": "text",
+        "text": "Please skip food fasting entirely if you have any medical reason to, are on medication that needs food, or have any history of disordered eating. Talk to a doctor rather than to us. The screen version above works just as well."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Eating With the Weather"
+      },
+      {
+        "type": "text",
+        "text": "Principles, not a plan. Monsoon digestion is slower and the campus water table is doing what it does every year."
+      },
+      {
+        "type": "list",
+        "items": [
+          "01 Warm over cold, cooked over rawSalads and cold food sit heavier this season than they look. Cooked and warm moves easier.",
+          "02 Careful with leafy greensTraditionally avoided through Shravan, and the reasoning holds up: they hold moisture and contamination through a wet month.",
+          "03 Ginger, turmeric, black pepper, ajwainThe standard monsoon kitchen. They earn their place by helping a slow gut along.",
+          "04 Water that has been boiledThe least spiritual line in this issue and possibly the most useful one.",
+          "05 Stop a little before fullThe oldest instruction in the book, and the one nobody follows. Try it for a week."
+        ]
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Be Bored On Purpose"
+      },
+      {
+        "type": "text",
+        "text": "Here is the part that will feel wrong. Every gap in your day is currently filled. The walk to class, the queue at the mess, the ninety seconds before a lecture starts, all of it goes to a screen. Nothing in that is unusual and nobody is being scolded here. But it means the mind has not been genuinely unoccupied in a long time, possibly years. Idle and distracted are not the same thing. Scrolling is not rest, it is a different kind of work. Actual idleness, sitting with nothing happening and not reaching for anything, is where attention slowly repairs itself. It feels unbearable for the first few minutes and then it does not. The practical case is straightforward. The ability to hold attention on one thing for a long stretch is getting rarer every year. Whatever you end up doing after this campus, that will be worth more than it is today, precisely because fewer people will have it. So this month, leave one gap empty. Do not fill the queue. Do not fill the walk. Let it be boring on purpose and see what your head does with the room."
+      },
+      {
+        "type": "text",
+        "text": "Three minutes. Phone face down, nothing playing, nothing to look at. That is the whole exercise."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Two Asanas for a Wet Month"
+      },
+      {
+        "type": "text",
+        "text": "Both are seated, both help a sluggish monsoon digestion, and both can be done in a hostel room without moving furniture."
+      },
+      {
+        "type": "text",
+        "text": "Kneel, sit back on the heels, spine tall, hands on thighs. The one pose traditionally done straight after eating rather than before. Five to ten minutes post-meal is the classic prescription for exactly the heaviness this season brings."
+      },
+      {
+        "type": "text",
+        "text": "Lie on your back, draw one knee across the body, let the head turn the other way, hold and breathe. A gentle wring for the middle of the body. Do both sides, a minute or two each, and it works well right before sleep."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "The Rain Breath"
+      },
+      {
+        "type": "text",
+        "text": "A breathing visualization built for the season. Four counts in, two to hold, six out, with something to picture on each phase."
+      },
+      {
+        "type": "breathing",
+        "phases": [
+          {
+            "label": "Breathe in",
+            "duration": 4,
+            "scale": 1,
+            "tone": 392,
+            "cue": "Rain gathering. Draw it up from the ground, all the way to the top of the chest."
+          },
+          {
+            "label": "Hold",
+            "duration": 2,
+            "scale": 1,
+            "cue": "The pause before it falls. Everything held, nothing moving."
+          },
+          {
+            "label": "Breathe out",
+            "duration": 6,
+            "scale": 0.7,
+            "tone": 294,
+            "cue": "Let it fall. Slow, long, all the way down and out through the floor."
+          }
+        ],
+        "cycles": 4
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Three Playlists"
+      },
+      {
+        "type": "text",
+        "text": "One for chanting along, one for sitting quietly, one for guided practice. All three will keep growing through the month."
+      },
+      {
+        "type": "playlist",
+        "title": "Mantras & Devotional",
+        "meta": "Rudrashtakam, Shiv Tandav Stotram and more · YouTube Music",
+        "href": "https://music.youtube.com/playlist?list=PLEqYjzM2FjVM&si=KBvfNunLYqFNPGzt"
+      },
+      {
+        "type": "playlist",
+        "title": "Meditation Music",
+        "meta": "For sitting, studying, or falling asleep to · YouTube Music",
+        "href": "https://music.youtube.com/playlist?list=PLdxHZY2YT42g&si=cSGU7hKTYdH975dJ"
+      },
+      {
+        "type": "playlist",
+        "title": "Guided Breathwork",
+        "meta": "Pranayama, Kapalabhati, and Yoga Nidra sessions · YouTube Music",
+        "href": "https://music.youtube.com/playlist?list=PLK6VTdpPoDXg&si=MFNllPIynSFGrZ4k"
+      },
+      {
+        "type": "text",
+        "text": "All three playlists are works in progress and more will be added as the month goes on. If there is something you keep coming back to, send it over and we will put it in."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "What We're Reading"
+      },
+      {
+        "type": "text",
+        "text": "The CEO Mindset, currently doing the rounds among a few of us. The thread worth pulling on for this issue: the discipline that compounds is rarely the dramatic kind. It is the small refusal, repeated, on the days it does not feel like it matters. Which is more or less what Shravan has been saying for a few thousand years, in different words. If you are reading something that fits the month, tell us and it goes in the next issue."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "note",
+        "text": "Pick one thing from this issue. Not five. One Monday, one asana, one empty gap in the day left unfilled. Restraint does not scale by doing more of it at once, which is rather the point. And if you would rather sit with people than sit alone, we are around twice a week. Come find us."
+      }
+    ]
+  },
+  {
+    "slug": "issue-04",
+    "number": 4,
+    "title": "The Third Quotient",
+    "subtitle": "This campus trains you hard for one kind of intelligence. Nobody grades the other two.",
+    "published_at": null,
+    "content": [
+      {
+        "type": "heading",
+        "text": "The Third Quotient"
+      },
+      {
+        "type": "lede",
+        "text": "Every case, every cold call, every mid-term here is built to sharpen one thing. It matters. It just isn't the only thing that matters."
+      },
+      {
+        "type": "lede",
+        "text": "The other two intelligences don't show up on a transcript. They show up in the interview, the rejection, the 2am spiral before a submission. This issue is about training for those too."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "The Three Quotients"
+      },
+      {
+        "type": "text",
+        "text": "Logic, pattern, recall. The kind of intelligence a classroom is built to measure."
+      },
+      {
+        "type": "text",
+        "text": "Reading and regulating emotion, yours and the room's. It's the difference between a case interview that goes well and one that doesn't, and it's usually the real cause when a team falls apart, not the deadline. One way to build it: name what you're feeling before you react to it. That half-second gap is most of the skill."
+      },
+      {
+        "type": "text",
+        "text": "The least familiar of the three. Not religion. The capacity to sit with uncertainty without needing to resolve it immediately, and to know what you're actually optimizing for beyond the next number on a stipend letter. Hardest to explain, most useful under pressure."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Your Feed Is Training Data"
+      },
+      {
+        "type": "text",
+        "text": "You audit your diet this month already. Audit what you follow too. What shows up in your feed daily becomes the default shape of your thoughts, whether you notice it happening or not. Unfollow whatever leaves you comparing or resentful, even if it's entertaining in the moment. Follow what leaves you calmer or sharper. Put good out where you can, it tends to find its way back, not as karma bookkeeping, just as how people and rooms actually work."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Move, Even for Ten Minutes"
+      },
+      {
+        "type": "text",
+        "text": "Start small. Ten minutes, a short walk, a stretch, anything. Don't wait for the ideal routine before beginning, the bar for day one should be embarrassingly low. You'll regret every week you didn't start, once you're a few weeks into actually doing it. That's the whole pitch. Start, then build from there."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Nadi Shodhana"
+      },
+      {
+        "type": "text",
+        "text": "Alternate nostril breathing, the classical technique for balancing exactly the split this issue is about, one side active, one side still."
+      },
+      {
+        "type": "text",
+        "text": "Right thumb closes the right nostril, breathe in left. Close left with the ring finger, release right, breathe out right. In right, close right, breathe out left. That's one round."
+      },
+      {
+        "type": "breathing",
+        "phases": [
+          {
+            "label": "Inhale",
+            "duration": 4,
+            "scale": 1,
+            "tone": 440,
+            "cue": "Left nostril open"
+          },
+          {
+            "label": "Hold",
+            "duration": 2,
+            "scale": 1,
+            "cue": "Both nostrils closed"
+          },
+          {
+            "label": "Exhale",
+            "duration": 4,
+            "scale": 0.7,
+            "tone": 330,
+            "cue": "Right nostril open"
+          },
+          {
+            "label": "Hold",
+            "duration": 2,
+            "scale": 0.7,
+            "cue": "Both nostrils closed"
+          },
+          {
+            "label": "Inhale",
+            "duration": 4,
+            "scale": 1,
+            "tone": 440,
+            "cue": "Right nostril open"
+          },
+          {
+            "label": "Hold",
+            "duration": 2,
+            "scale": 1,
+            "cue": "Both nostrils closed"
+          },
+          {
+            "label": "Exhale",
+            "duration": 4,
+            "scale": 0.7,
+            "tone": 330,
+            "cue": "Left nostril open"
+          },
+          {
+            "label": "Hold",
+            "duration": 2,
+            "scale": 0.7,
+            "cue": "Both nostrils closed"
+          }
+        ],
+        "cycles": 4
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "The Playlists"
+      },
+      {
+        "type": "text",
+        "text": "The same three from last issue, still growing, and the guided breathwork one pairs directly with the practice above."
+      },
+      {
+        "type": "playlist",
+        "title": "Mantras & Devotional",
+        "meta": "Rudrashtakam, Shiv Tandav Stotram and more · YouTube Music",
+        "href": "https://music.youtube.com/playlist?list=PLEqYjzM2FjVM&si=KBvfNunLYqFNPGzt"
+      },
+      {
+        "type": "playlist",
+        "title": "Meditation Music",
+        "meta": "For sitting, studying, or falling asleep to · YouTube Music",
+        "href": "https://music.youtube.com/playlist?list=PLdxHZY2YT42g&si=cSGU7hKTYdH975dJ"
+      },
+      {
+        "type": "playlist",
+        "title": "Guided Breathwork",
+        "meta": "Pranayama, Kapalabhati, and Yoga Nidra sessions · YouTube Music",
+        "href": "https://music.youtube.com/playlist?list=PLK6VTdpPoDXg&si=MFNllPIynSFGrZ4k"
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "heading",
+        "text": "Two Verses"
+      },
+      {
+        "type": "verse",
+        "source": "Bhagavad Gita 6.5",
+        "devanagari": "उद्धरेदात्मनात्मानं नात्मानमवसादयेत् ।आत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः ॥",
+        "transliteration": "uddhared ātmanātmānaṁ nātmānam avasādayetātmaiva hyātmano bandhur ātmaiva ripur ātmanaḥ",
+        "sense": "Sense"
+      },
+      {
+        "type": "verse",
+        "source": "Bhagavad Gita 2.47",
+        "devanagari": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।",
+        "transliteration": "karmaṇy evādhikāras te mā phaleṣu kadācana",
+        "sense": "Sense"
+      }
+    ]
+  }
+]

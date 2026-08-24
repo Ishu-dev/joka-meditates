@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Month of Restraint · Joka Meditates Issue 03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f2ea;
+    --ink:#26261f;
+    --ink-soft:#585848;
+    --accent:#c2447e;
+    --accent-soft:#fbe4ee;
+    --deep:#2f5d54;
+    --deep-soft:#e2ede9;
+    --rule:#d9d4c3;
+    --link:#6b4f8f;
+    --radius:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#191a17;
+      --ink:#ece8dc;
+      --ink-soft:#a6a394;
+      --accent:#f2a6c6;
+      --accent-soft:#39202b;
+      --deep:#8fc4b6;
+      --deep-soft:#1f2f2b;
+      --rule:#383730;
+      --link:#b79fd6;
+    }
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', -apple-system, sans-serif;
+    line-height:1.65;
+    font-size:17px;
+  }
+
+  /* Reading progress */
+  .progress-bar{
+    position:fixed;
+    top:0; left:0;
+    height:3px;
+    width:0%;
+    background:var(--accent);
+    z-index:100;
+    transition:width .12s linear;
+  }
+
+  .wrap{ max-width:640px; margin:0 auto; padding:48px 24px 64px; }
+
+  /* Header */
+  header{ text-align:center; margin-bottom:20px; }
+  .logo-badge{ display:inline-block; margin-bottom:16px; }
+  .logo-badge img{ width:150px; height:auto; display:block; }
+  .mark{
+    font-size:13px; letter-spacing:.06em; color:var(--ink-soft);
+    text-transform:uppercase; margin-bottom:18px;
+  }
+  h1{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-weight:600;
+    font-size:clamp(38px, 8.5vw, 56px);
+    line-height:1.04;
+    margin:0 0 14px;
+    letter-spacing:-.01em;
+  }
+  .issue-sub{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-style:italic; font-size:19px; color:var(--ink-soft);
+    margin-bottom:16px;
+  }
+  .issue-badge{
+    display:inline-block;
+    background:var(--accent); color:var(--paper);
+    font-weight:700; font-size:15px; letter-spacing:.1em;
+    text-transform:uppercase; padding:9px 24px; border-radius:999px;
+  }
+
+  /* Rain motif */
+  .rain{
+    display:flex; justify-content:center; align-items:flex-end;
+    gap:7px; height:54px; margin:34px auto 0; max-width:320px;
+  }
+  .rain span{
+    display:block; width:2px; border-radius:2px;
+    background:var(--deep); opacity:.5;
+    animation:fall 2.4s ease-in-out infinite;
+  }
+  @keyframes fall{
+    0%,100%{ transform:translateY(0); opacity:.25; }
+    50%{ transform:translateY(9px); opacity:.75; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .rain span{ animation:none; }
+    .fade{ opacity:1 !important; transform:none !important; }
+  }
+
+  .sound-toggle{
+    background:transparent; border:1.5px solid var(--rule);
+    color:var(--ink-soft); border-radius:999px;
+    padding:7px 18px; font-family:'IBM Plex Sans', sans-serif;
+    font-size:12px; letter-spacing:.03em; cursor:pointer; margin-top:28px;
+  }
+  .sound-toggle:active{ opacity:.8; }
+
+  /* Fade in on scroll */
+  .fade{
+    opacity:0; transform:translateY(16px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .fade.visible{ opacity:1; transform:none; }
+
+  /* Sections */
+  section{ margin-bottom:54px; }
+  .kicker{
+    font-size:11px; font-weight:700; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--deep); margin-bottom:8px;
+  }
+  h2{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-weight:600; font-size:31px; margin:0 0 10px; color:var(--accent);
+    line-height:1.15;
+  }
+  .section-intro{ color:var(--ink-soft); font-size:15px; margin:0 0 22px; }
+  p{ margin:0 0 16px; }
+  a{ color:var(--link); }
+
+  .lede{
+    font-size:16.5px; color:var(--ink-soft);
+    max-width:470px; margin:0 auto 8px; text-align:center;
+  }
+  .pull-quote{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-style:italic; font-weight:600;
+    font-size:clamp(23px, 5.5vw, 30px); line-height:1.4;
+    color:var(--accent); text-align:center;
+    max-width:430px; margin:24px auto 26px;
+  }
+
+  .card{
+    background:var(--accent-soft); border-radius:var(--radius);
+    padding:20px 22px; margin-bottom:14px;
+  }
+  .card-deep{ background:var(--deep-soft); }
+  .card-title{ font-weight:600; font-size:16px; margin-bottom:4px; color:var(--ink); }
+  .card-body{ font-size:15px; color:var(--ink-soft); margin:0; }
+
+  .prose-block{
+    background:var(--deep-soft); border-radius:var(--radius);
+    padding:26px 26px 22px;
+  }
+  .prose-block p:last-child{ margin-bottom:0; }
+
+  .note{
+    font-size:13.5px; color:var(--ink-soft);
+    border-left:3px solid var(--rule);
+    padding:2px 0 2px 14px; margin-top:18px;
+  }
+
+  /* Reminder strip: deliberately unlike card/prose-block, so it reads
+     as a different kind of content, not another paragraph. */
+  .reminder{
+    border-left:4px solid var(--accent);
+    padding:2px 0 4px 22px;
+    margin-top:24px;
+  }
+  .reminder-lead{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-style:italic; font-weight:600;
+    font-size:21px; line-height:1.4;
+    color:var(--ink); margin-bottom:16px;
+  }
+  .reminder-tags{
+    display:flex; flex-wrap:wrap; gap:9px;
+  }
+  .reminder-tag{
+    background:var(--deep-soft); color:var(--deep);
+    font-size:12.5px; font-weight:600; letter-spacing:.02em;
+    padding:7px 15px; border-radius:999px;
+  }
+
+  .rule{ border:none; border-top:1px solid var(--rule); margin:54px 0; }
+
+  /* Playlist */
+  .playlist{
+    display:block; text-decoration:none;
+    background:var(--accent-soft); border-radius:var(--radius);
+    padding:18px 22px; margin-bottom:12px;
+    border:1.5px solid transparent;
+    transition:border-color .2s ease;
+  }
+  .playlist:hover{ border-color:var(--accent); }
+  .playlist-title{ font-weight:600; font-size:16px; color:var(--ink); margin-bottom:2px; }
+  .playlist-meta{ font-size:14px; color:var(--link); }
+
+  /* Breathing widget */
+  .breathe-wrap{
+    display:flex; flex-direction:column; align-items:center;
+    margin-top:26px; padding:34px 20px;
+    background:var(--deep-soft); border-radius:var(--radius);
+  }
+  .breathe-circle{
+    width:130px; height:130px; border-radius:50%;
+    background:var(--deep);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--paper); font-weight:600; font-size:15px;
+    transition:transform 4s ease-in-out; transform:scale(0.7);
+    text-align:center; padding:12px;
+  }
+  .breathe-label{
+    margin-top:20px; font-size:13px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-soft); min-height:18px;
+    text-align:center;
+  }
+  .breathe-cue{
+    margin-top:10px; font-family:'Cormorant Garamond', Georgia, serif;
+    font-style:italic; font-size:17px; color:var(--ink-soft);
+    text-align:center; max-width:330px; min-height:50px;
+  }
+  .breathe-btn{
+    margin-top:16px; background:var(--deep); color:var(--paper);
+    border:none; border-radius:999px; padding:10px 26px;
+    font-family:'IBM Plex Sans', sans-serif; font-size:14px;
+    font-weight:600; cursor:pointer;
+  }
+  .breathe-btn:active{ opacity:.85; }
+
+  /* Idle timer */
+  .idle-wrap{
+    display:flex; flex-direction:column; align-items:center;
+    margin-top:26px; padding:32px 20px;
+    background:var(--accent-soft); border-radius:var(--radius);
+  }
+  .idle-display{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-size:60px; font-weight:600; color:var(--accent); line-height:1;
+  }
+  .idle-controls{ display:flex; gap:10px; margin-top:20px; }
+  .idle-btn{
+    background:var(--accent); color:var(--paper); border:none;
+    border-radius:999px; padding:9px 22px;
+    font-family:'IBM Plex Sans', sans-serif; font-size:14px;
+    font-weight:600; cursor:pointer;
+  }
+  .idle-btn.secondary{
+    background:transparent; color:var(--accent);
+    border:1.5px solid var(--accent);
+  }
+
+  /* Numbered list */
+  .num-list{ list-style:none; padding:0; margin:0; }
+  .num-list li{
+    display:flex; gap:16px; align-items:flex-start;
+    padding:16px 0; border-bottom:1px solid var(--rule);
+  }
+  .num-list li:last-child{ border-bottom:none; padding-bottom:0; }
+  .num{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-weight:600; font-size:26px; color:var(--deep); min-width:30px;
+  }
+  .num-text{ font-size:16px; padding-top:2px; }
+  .num-text strong{ display:block; margin-bottom:2px; }
+
+  .callout{
+    text-align:center; background:var(--accent-soft);
+    border-radius:var(--radius); padding:32px 26px;
+  }
+  .callout p:last-child{ margin-bottom:0; }
+
+  footer{ text-align:center; margin-top:56px; }
+  .logo-footer-badge{ display:inline-block; margin-bottom:12px; }
+  .logo-footer-badge img{ width:56px; height:auto; display:block; opacity:.95; margin:0 auto; }
+  .footer-note{ font-size:13px; color:var(--ink-soft); }
+
+  @media (max-width:480px){
+    .wrap{ padding:36px 18px 48px; }
+    h1{ font-size:35px; }
+    h2{ font-size:27px; }
+    .idle-display{ font-size:50px; }
+  }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<div class="wrap">
+
+  <header>
+    <div class="logo-badge">
+      <img src="data:image/png;base64,<!-- LOGO_IMAGE_DATA_STRIPPED_FOR_REFERENCE -->" alt="Joka Meditates">
+    </div>
+    <div class="mark">Joka Meditates · MBA, MBA Ex, PGDBA, PhD, PGPEX-VLM · IIM Calcutta</div>
+    <h1>The Month of Restraint</h1>
+    <div class="issue-sub">Saavan asks you to do less. That turns out to be the hard part.</div>
+    <div class="issue-badge">Issue 03</div>
+    <div class="rain" id="rain"></div>
+    <button class="sound-toggle" id="soundToggle" onclick="toggleSound()">Sound on</button>
+  </header>
+
+  <section class="fade">
+    <p class="lede">Shravan arrives with the rain and a strange instruction: eat lighter, sit longer, want less. In a term where everything is asking for more of you, that lands oddly.</p>
+    <div class="pull-quote">The month isn't asking you to add a practice.<br>It's asking you to subtract noise.</div>
+    <p class="lede">Below: why the season works this way, what to eat and skip, two asanas, a breathing visualization, playlists to sit with, and an argument for being bored on purpose.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="kicker">The Season</div>
+    <h2>Why Saavan Works This Way</h2>
+    <div class="prose-block">
+      <p>The monsoon logic is older than any of us and fairly practical underneath the ritual. Humidity climbs, sunlight drops, and digestion genuinely slows. Traditional practice reads that as a signal: this is not the season for heavy food, hard travel, or scattered energy.</p>
+      <p>So the month turns inward instead. Lighter meals. More chanting. More sitting. Less of everything that pulls outward. Shravan is the one month in the calendar that treats restraint as the practice itself, rather than as preparation for something else.</p>
+      <p>You do not need to hold any particular belief for the structure to be useful. A month of deliberately doing less, right as the term gets heaviest, is a good idea on its own terms.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="kicker">Observance</div>
+    <h2>Fasting, Honestly</h2>
+    <p class="section-intro">Saavan fasting is observance before it is anything else. Mondays are the traditional day, and the forms people keep vary widely.</p>
+    <div class="card">
+      <div class="card-title">The common forms</div>
+      <p class="card-body">Some keep a full fast on Mondays. Some eat one simple meal. Some only drop grains, or salt, or anything non-vegetarian for the month. All of these count. There is no leaderboard here.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">What it is actually for</div>
+      <p class="card-body">The point is not the empty stomach. It is noticing how loudly the body asks, how quickly the mind negotiates, and choosing anyway. That noticing is the practice. The food is just the setting.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">A softer version</div>
+      <p class="card-body">If a food fast isn't for you, keep the shape and change the object. A day without screens after 9pm. A day without complaining. Same muscle, different weight.</p>
+    </div>
+    <p class="note">Please skip food fasting entirely if you have any medical reason to, are on medication that needs food, or have any history of disordered eating. Talk to a doctor rather than to us. The screen version above works just as well.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="kicker">Food</div>
+    <h2>Eating With the Weather</h2>
+    <p class="section-intro">Principles, not a plan. Monsoon digestion is slower and the campus water table is doing what it does every year.</p>
+    <ol class="num-list">
+      <li>
+        <span class="num">01</span>
+        <span class="num-text"><strong>Warm over cold, cooked over raw</strong>Salads and cold food sit heavier this season than they look. Cooked and warm moves easier.</span>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <span class="num-text"><strong>Careful with leafy greens</strong>Traditionally avoided through Shravan, and the reasoning holds up: they hold moisture and contamination through a wet month.</span>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <span class="num-text"><strong>Ginger, turmeric, black pepper, ajwain</strong>The standard monsoon kitchen. They earn their place by helping a slow gut along.</span>
+      </li>
+      <li>
+        <span class="num">04</span>
+        <span class="num-text"><strong>Water that has been boiled</strong>The least spiritual line in this issue and possibly the most useful one.</span>
+      </li>
+      <li>
+        <span class="num">05</span>
+        <span class="num-text"><strong>Stop a little before full</strong>The oldest instruction in the book, and the one nobody follows. Try it for a week.</span>
+      </li>
+    </ol>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="kicker">The Argument</div>
+    <h2>Be Bored On Purpose</h2>
+    <div class="prose-block">
+      <p>Here is the part that will feel wrong.</p>
+      <p>Every gap in your day is currently filled. The walk to class, the queue at the mess, the ninety seconds before a lecture starts, all of it goes to a screen. Nothing in that is unusual and nobody is being scolded here. But it means the mind has not been genuinely unoccupied in a long time, possibly years.</p>
+      <p>Idle and distracted are not the same thing. Scrolling is not rest, it is a different kind of work. Actual idleness, sitting with nothing happening and not reaching for anything, is where attention slowly repairs itself. It feels unbearable for the first few minutes and then it does not.</p>
+      <p>The practical case is straightforward. The ability to hold attention on one thing for a long stretch is getting rarer every year. Whatever you end up doing after this campus, that will be worth more than it is today, precisely because fewer people will have it.</p>
+      <p>So this month, leave one gap empty. Do not fill the queue. Do not fill the walk. Let it be boring on purpose and see what your head does with the room.</p>
+    </div>
+
+    <div class="idle-wrap">
+      <div class="idle-display" id="idleDisplay">3:00</div>
+      <div class="idle-controls">
+        <button class="idle-btn" id="idleStartBtn" onclick="toggleIdle()">Start</button>
+        <button class="idle-btn secondary" onclick="resetIdle()">Reset</button>
+      </div>
+    </div>
+    <p class="note">Three minutes. Phone face down, nothing playing, nothing to look at. That is the whole exercise.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="kicker">Body</div>
+    <h2>Two Asanas for a Wet Month</h2>
+    <p class="section-intro">Both are seated, both help a sluggish monsoon digestion, and both can be done in a hostel room without moving furniture.</p>
+    <div class="card card-deep">
+      <div class="card-title">Vajrasana</div>
+      <p class="card-body">Kneel, sit back on the heels, spine tall, hands on thighs. The one pose traditionally done straight after eating rather than before. Five to ten minutes post-meal is the classic prescription for exactly the heaviness this season brings.</p>
+    </div>
+    <div class="card card-deep">
+      <div class="card-title">Supta Matsyendrasana (supine twist)</div>
+      <p class="card-body">Lie on your back, draw one knee across the body, let the head turn the other way, hold and breathe. A gentle wring for the middle of the body. Do both sides, a minute or two each, and it works well right before sleep.</p>
+    </div>
+    <div class="reminder">
+      <div class="reminder-lead">None of this replaces a proper workout. Restraint this month is about food and noise, not about skipping movement, warm up before anything strenuous and keep the regular exercise going.</div>
+      <div class="reminder-tags">
+        <span class="reminder-tag">Gets blood circulating</span>
+        <span class="reminder-tag">Sharper brain function</span>
+        <span class="reminder-tag">Builds real physique</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="kicker">Practice</div>
+    <h2>The Rain Breath</h2>
+    <p class="section-intro">A breathing visualization built for the season. Four counts in, two to hold, six out, with something to picture on each phase.</p>
+    <div class="breathe-wrap">
+      <div class="breathe-circle" id="rainCircle">Ready</div>
+      <div class="breathe-label" id="rainLabel">Press start when you're ready</div>
+      <div class="breathe-cue" id="rainCue">Sit however you are sitting. Nothing needs fixing first.</div>
+      <button class="breathe-btn" id="rainBtn">Start</button>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="kicker">Listen</div>
+    <h2>Three Playlists</h2>
+    <p class="section-intro">One for chanting along, one for sitting quietly, one for guided practice. All three will keep growing through the month.</p>
+    <a class="playlist" href="https://music.youtube.com/playlist?list=PLEqYjzM2FjVM&si=KBvfNunLYqFNPGzt" target="_blank" rel="noopener">
+      <div class="playlist-title">Mantras &amp; Devotional</div>
+      <div class="playlist-meta">Rudrashtakam, Shiv Tandav Stotram and more · YouTube Music</div>
+    </a>
+    <a class="playlist" href="https://music.youtube.com/playlist?list=PLdxHZY2YT42g&si=cSGU7hKTYdH975dJ" target="_blank" rel="noopener">
+      <div class="playlist-title">Meditation Music</div>
+      <div class="playlist-meta">For sitting, studying, or falling asleep to · YouTube Music</div>
+    </a>
+    <a class="playlist" href="https://music.youtube.com/playlist?list=PLK6VTdpPoDXg&si=MFNllPIynSFGrZ4k" target="_blank" rel="noopener">
+      <div class="playlist-title">Guided Breathwork</div>
+      <div class="playlist-meta">Pranayama, Kapalabhati, and Yoga Nidra sessions · YouTube Music</div>
+    </a>
+    <p class="note">All three playlists are works in progress and more will be added as the month goes on. If there is something you keep coming back to, send it over and we will put it in.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="kicker">Shelf</div>
+    <h2>What We're Reading</h2>
+    <div class="prose-block">
+      <p><strong>The CEO Mindset</strong>, currently doing the rounds among a few of us. The thread worth pulling on for this issue: the discipline that compounds is rarely the dramatic kind. It is the small refusal, repeated, on the days it does not feel like it matters.</p>
+      <p>Which is more or less what Shravan has been saying for a few thousand years, in different words.</p>
+      <p>If you are reading something that fits the month, tell us and it goes in the next issue.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="fade">
+    <div class="callout">
+      <p>Pick one thing from this issue. Not five. One Monday, one asana, one empty gap in the day left unfilled. Restraint does not scale by doing more of it at once, which is rather the point.</p>
+      <p>And if you would rather sit with people than sit alone, we are around twice a week. Come find us.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo-footer-badge">
+      <img src="data:image/png;base64,<!-- LOGO_IMAGE_DATA_STRIPPED_FOR_REFERENCE -->" alt="Joka Meditates">
+    </div>
+    <div class="footer-note">Joka Meditates, IIM Calcutta, twice a week, a little at a time.</div>
+  </footer>
+
+</div>
+
+<script>
+  /* ---------- Rain motif ---------- */
+  (function(){
+    const rain = document.getElementById('rain');
+    const heights = [18,30,22,38,26,44,20,34,28,42,24,36,19,32,25];
+    heights.forEach(function(h, i){
+      const s = document.createElement('span');
+      s.style.height = h + 'px';
+      s.style.animationDelay = (i * 0.13) + 's';
+      rain.appendChild(s);
+    });
+  })();
+
+  /* ---------- Reading progress ---------- */
+  const progressBar = document.getElementById('progressBar');
+  window.addEventListener('scroll', function(){
+    const h = document.documentElement;
+    const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    progressBar.style.width = Math.min(scrolled * 100, 100) + '%';
+  }, { passive:true });
+
+  /* ---------- Fade in on scroll ---------- */
+  (function(){
+    const faders = document.querySelectorAll('.fade');
+    if (!('IntersectionObserver' in window)){
+      faders.forEach(function(el){ el.classList.add('visible'); });
+      return;
+    }
+    const obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+    faders.forEach(function(el){ obs.observe(el); });
+  })();
+
+  /* ---------- Sound ---------- */
+  let soundEnabled = true;
+  let audioCtx = null;
+
+  function getAudioCtx(){
+    if (!audioCtx){
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return null;
+      audioCtx = new Ctx();
+    }
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    return audioCtx;
+  }
+
+  function playTone(freq, duration, volume){
+    if (!soundEnabled) return;
+    const ctx = getAudioCtx();
+    if (!ctx) return;
+    try {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(volume || 0.06, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + duration);
+    } catch(e){}
+  }
+
+  function playChime(){
+    if (!soundEnabled) return;
+    playTone(523.25, 0.9, 0.08);
+    setTimeout(function(){ playTone(659.25, 1.2, 0.07); }, 200);
+  }
+
+  function toggleSound(){
+    soundEnabled = !soundEnabled;
+    document.getElementById('soundToggle').textContent = soundEnabled ? 'Sound on' : 'Sound off';
+    if (soundEnabled) getAudioCtx();
+  }
+
+  /* ---------- Rain breath widget ---------- */
+  (function(){
+    const circle = document.getElementById('rainCircle');
+    const label = document.getElementById('rainLabel');
+    const cue = document.getElementById('rainCue');
+    const btn = document.getElementById('rainBtn');
+    const phases = [
+      { label:'Breathe in', duration:4, scale:1, tone:392,
+        cue:'Rain gathering. Draw it up from the ground, all the way to the top of the chest.' },
+      { label:'Hold', duration:2, scale:1, tone:null,
+        cue:'The pause before it falls. Everything held, nothing moving.' },
+      { label:'Breathe out', duration:6, scale:0.7, tone:294,
+        cue:'Let it fall. Slow, long, all the way down and out through the floor.' }
+    ];
+    let running = false, idx = 0, timeoutId = null;
+
+    function runPhase(){
+      const p = phases[idx];
+      circle.style.transitionDuration = p.duration + 's';
+      circle.style.transform = 'scale(' + p.scale + ')';
+      circle.textContent = p.label;
+      label.textContent = p.label + ' · ' + p.duration + (p.duration === 1 ? ' second' : ' seconds');
+      cue.textContent = p.cue;
+      if (p.tone) playTone(p.tone, Math.min(p.duration * 0.5, 1.1), 0.05);
+      idx = (idx + 1) % phases.length;
+      timeoutId = setTimeout(runPhase, p.duration * 1000);
+    }
+
+    btn.addEventListener('click', function(){
+      running = !running;
+      if (running){
+        getAudioCtx();
+        btn.textContent = 'Stop';
+        idx = 0;
+        runPhase();
+      } else {
+        btn.textContent = 'Start';
+        clearTimeout(timeoutId);
+        circle.style.transitionDuration = '.6s';
+        circle.style.transform = 'scale(0.7)';
+        circle.textContent = 'Ready';
+        label.textContent = "Press start when you're ready";
+        cue.textContent = 'Sit however you are sitting. Nothing needs fixing first.';
+      }
+    });
+  })();
+
+  /* ---------- Idle timer ---------- */
+  let idleLeft = 180;
+  let idleRunning = false;
+  let idleInterval = null;
+  const idleDisplay = document.getElementById('idleDisplay');
+  const idleStartBtn = document.getElementById('idleStartBtn');
+
+  function formatTime(t){
+    const m = Math.floor(t / 60);
+    const s = t % 60;
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function toggleIdle(){
+    if (idleRunning){
+      clearInterval(idleInterval);
+      idleRunning = false;
+      idleStartBtn.textContent = 'Start';
+    } else {
+      getAudioCtx();
+      idleRunning = true;
+      idleStartBtn.textContent = 'Pause';
+      idleInterval = setInterval(function(){
+        if (idleLeft > 0){
+          idleLeft--;
+          idleDisplay.textContent = formatTime(idleLeft);
+        } else {
+          clearInterval(idleInterval);
+          idleRunning = false;
+          idleStartBtn.textContent = 'Start';
+          idleDisplay.textContent = 'Done';
+          playChime();
+        }
+      }, 1000);
+    }
+  }
+
+  function resetIdle(){
+    clearInterval(idleInterval);
+    idleRunning = false;
+    idleLeft = 180;
+    idleDisplay.textContent = formatTime(idleLeft);
+    idleStartBtn.textContent = 'Start';
+  }
+</script>
+
+</body>
+</html>

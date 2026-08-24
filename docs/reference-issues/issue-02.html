@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Kilometer to Go · Joka Meditates Issue 02</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f2e9;
+    --ink:#2a2a24;
+    --ink-soft:#5a5a4e;
+    --accent:#c2447e;
+    --accent-soft:#fbe4ee;
+    --rule:#dcd5c4;
+    --link:#6b4f8f;
+    --radius:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#1c1c18;
+      --ink:#eee9dd;
+      --ink-soft:#a9a596;
+      --accent:#f2a6c6;
+      --accent-soft:#3a1f2b;
+      --rule:#3a382f;
+      --link:#b79fd6;
+    }
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', -apple-system, sans-serif;
+    line-height:1.65;
+    font-size:17px;
+    transition:background .3s ease, color .3s ease;
+  }
+  .wrap{
+    max-width:640px;
+    margin:0 auto;
+    padding:48px 24px 64px;
+  }
+  header{ text-align:center; margin-bottom:52px; }
+  .logo-badge{
+    display:inline-block;
+    padding:0;
+    margin-bottom:16px;
+  }
+  .logo-badge img{
+    width:150px;
+    height:auto;
+    display:block;
+  }
+  .mark{
+    font-size:13px;
+    letter-spacing:.06em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  h1{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-weight:600;
+    font-size:clamp(38px, 8vw, 54px);
+    line-height:1.05;
+    margin:0 0 14px;
+    letter-spacing:-.01em;
+  }
+  .issue{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-style:italic;
+    font-size:19px;
+    color:var(--ink-soft);
+    margin-bottom:16px;
+  }
+  .issue-badge{
+    display:inline-block;
+    background:var(--accent);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    padding:9px 24px;
+    border-radius:999px;
+    margin-bottom:8px;
+  }
+  .track{
+    max-width:380px;
+    margin:34px auto 0;
+  }
+  .track-line{
+    position:relative;
+    height:3px;
+    background:var(--rule);
+    border-radius:2px;
+    margin-bottom:12px;
+  }
+  .track-dot{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:var(--ink-soft);
+  }
+  .track-dot-start{ left:0; }
+  .track-dot-end{
+    right:0;
+    width:16px;
+    height:16px;
+    background:var(--accent);
+    box-shadow:0 0 0 5px var(--accent-soft);
+  }
+  .track-labels{
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    font-size:11px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .track-labels span:last-child{
+    text-align:right;
+    color:var(--accent);
+    font-weight:600;
+  }
+  .sound-toggle{
+    background:transparent;
+    border:1.5px solid var(--rule);
+    color:var(--ink-soft);
+    border-radius:999px;
+    padding:7px 18px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:12px;
+    letter-spacing:.03em;
+    cursor:pointer;
+    margin-top:30px;
+  }
+  .sound-toggle:active{ opacity:.8; }
+  section{ margin-bottom:52px; }
+  h2{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-weight:600;
+    font-size:30px;
+    margin:0 0 8px;
+    color:var(--accent);
+  }
+  .section-intro{
+    color:var(--ink-soft);
+    font-size:15px;
+    margin:0 0 22px;
+  }
+  p{ margin:0 0 16px; }
+  a{ color:var(--link); }
+  .lede{
+    font-size:16.5px;
+    color:var(--ink-soft);
+    max-width:460px;
+    margin:0 auto 8px;
+    text-align:center;
+  }
+  .pull-quote{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:clamp(23px, 5.5vw, 30px);
+    line-height:1.4;
+    color:var(--accent);
+    text-align:center;
+    max-width:420px;
+    margin:22px auto 26px;
+  }
+  .card{
+    background:var(--accent-soft);
+    border-radius:var(--radius);
+    padding:20px 22px;
+    margin-bottom:14px;
+  }
+  .card-title{
+    font-weight:600;
+    font-size:16px;
+    margin-bottom:4px;
+    color:var(--ink);
+  }
+  .card-body{
+    font-size:15px;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .prose-block{
+    background:var(--accent-soft);
+    border-radius:var(--radius);
+    padding:26px 26px 22px;
+  }
+  .prose-block p:last-child{ margin-bottom:0; }
+  .rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:52px 0;
+  }
+
+  /* Breathing circle */
+  .breathe-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:28px;
+    padding:32px 20px;
+    background:var(--accent-soft);
+    border-radius:var(--radius);
+  }
+  .breathe-circle{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:var(--accent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--paper);
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:.03em;
+    transition:transform 4s ease-in-out;
+    transform:scale(0.72);
+  }
+  .breathe-label{
+    margin-top:20px;
+    font-size:13px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    min-height:18px;
+  }
+  .breathe-btn{
+    margin-top:18px;
+    background:var(--accent);
+    color:var(--paper);
+    border:none;
+    border-radius:999px;
+    padding:10px 26px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    letter-spacing:.02em;
+  }
+  .breathe-btn:active{ opacity:.85; }
+
+  /* Timer */
+  .timer-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-top:28px;
+    padding:32px 20px;
+    background:var(--accent-soft);
+    border-radius:var(--radius);
+  }
+  .timer-display{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-size:64px;
+    font-weight:600;
+    color:var(--accent);
+    line-height:1;
+  }
+  .timer-controls{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+  }
+  .timer-btn{
+    background:var(--accent);
+    color:var(--paper);
+    border:none;
+    border-radius:999px;
+    padding:9px 22px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .timer-btn.secondary{
+    background:transparent;
+    color:var(--accent);
+    border:1.5px solid var(--accent);
+  }
+
+  /* Anchor list */
+  .anchor-list{ list-style:none; padding:0; margin:0; }
+  .anchor-list li{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    padding:16px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .anchor-list li:last-child{ border-bottom:none; padding-bottom:0; }
+  .anchor-num{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-weight:600;
+    font-size:26px;
+    color:var(--accent);
+    min-width:32px;
+  }
+  .anchor-text{ font-size:16px; padding-top:2px; }
+  .anchor-text strong{ display:block; margin-bottom:2px; }
+
+  .callout{
+    text-align:center;
+    background:var(--accent-soft);
+    border-radius:var(--radius);
+    padding:32px 26px;
+  }
+  .callout p{ margin-bottom:0; }
+
+  footer{
+    text-align:center;
+    margin-top:56px;
+  }
+  .logo-footer-badge{
+    display:inline-block;
+    padding:0;
+    margin-bottom:12px;
+  }
+  .logo-footer-badge img{
+    width:56px;
+    height:auto;
+    display:block;
+    opacity:.95;
+    margin:0 auto;
+  }
+  .footer-note{
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width:480px){
+    .wrap{ padding:36px 18px 48px; }
+    h1{ font-size:34px; }
+    h2{ font-size:26px; }
+    .timer-display{ font-size:52px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo-badge">
+      <img src="data:image/png;base64,<!-- LOGO_IMAGE_DATA_STRIPPED_FOR_REFERENCE -->" alt="Joka Meditates">
+    </div>
+    <div class="mark">Joka Meditates · MBA, MBA Ex, PGDBA, PhD, PGPEX-VLM · IIM Calcutta</div>
+    <h1>One Kilometer to Go</h1>
+    <div class="issue">Your legs stopped first. Your heart rate is still finishing.</div>
+    <div class="issue-badge">Issue 02</div>
+    <div class="track">
+      <div class="track-line">
+        <span class="track-dot track-dot-start"></span>
+        <span class="track-dot track-dot-end"></span>
+      </div>
+      <div class="track-labels">
+        <span>Timing mat</span>
+        <span>+1KM, where you actually finish</span>
+      </div>
+    </div>
+    <button class="sound-toggle" id="soundToggle" onclick="toggleSound()">Sound on</button>
+  </header>
+
+  <section>
+    <p class="lede">This one's late. Section wars are already old news by now, most of you cooled down days ago, found your regular heart rate again. Fair.</p>
+    <div class="pull-quote">The timing mat catches your feet.<br>It doesn't catch your nervous system.</div>
+    <p class="lede">That keeps running a while after you've stopped: heart still up, breath still short, mind still replaying the last two hundred meters. Same tools work for any workout, any time your body's buzzing louder than your mind can keep up with. Keep this one around.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Loosen the Legs</h2>
+    <p class="section-intro">Four stretches, runner specific. Look up the names if you need a visual, plenty of good demonstrations out there.</p>
+    <div class="card">
+      <div class="card-title">Quad Stretch</div>
+      <p class="card-body">Standing, heel to hip. Keeps the front of the thigh from locking up after all that striding.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Standing Hamstring Fold</div>
+      <p class="card-body">Hinge at the hips, let the head hang. Releases the back of the leg, where sprint fatigue lands hardest.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Staff Pose (Dandasana)</div>
+      <p class="card-body">Seated, legs straight, spine tall. Resets the lower back after the forward lean of a hard run.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Reclined Pigeon</div>
+      <p class="card-body">Hip opener, lying down. Undoes the tightness that builds in the hips from repetitive strides.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Bring the Heart Down</h2>
+    <p class="section-intro">Breath is the fastest lever you have over an elevated heart rate. Two ways in.</p>
+    <div class="card">
+      <div class="card-title">Extended Exhale</div>
+      <p class="card-body">Breathe in for four counts, out for six. The longer exhale is what tells your nervous system the sprint is over. Six rounds is about a minute.</p>
+    </div>
+
+    <div class="breathe-wrap">
+      <div class="breathe-circle" id="exhaleCircle">Ready</div>
+      <div class="breathe-label" id="exhaleLabel">Press start when you're ready</div>
+      <button class="breathe-btn" id="exhaleBtn">Start</button>
+    </div>
+
+    <div class="card" style="margin-top:32px;">
+      <div class="card-title">Box Breathing</div>
+      <p class="card-body">In for four, hold for four, out for four, hold for four. A steady square, useful when the adrenaline is still loud and you need something to count instead of think.</p>
+    </div>
+
+    <div class="breathe-wrap">
+      <div class="breathe-circle" id="boxCircle">Ready</div>
+      <div class="breathe-label" id="boxLabel">Press start when you're ready</div>
+      <button class="breathe-btn" id="boxBtn">Start</button>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Sit With It</h2>
+    <div class="prose-block">
+      <p>Find the bench. Or the grass. Anywhere you can sit without needing to hold a plank while you do it.</p>
+      <p>Five minutes. Eyes open or closed, your call.</p>
+      <p>First, notice the body exactly as it is. Heart still a little quick. Legs heavy in a good way. Sweat cooling on the back of your neck. Don't change any of it, just notice it's there.</p>
+      <p>Then notice the breath. Not the box, not the count, just the breath as it's already moving, in, out, whatever rhythm it's found on its own.</p>
+      <p>Now let the next thing go. Next match, next class, next deadline, whatever is queued up in your head, let it wait outside for five minutes. It'll still be there. Right now there's just this body, on this bench, breathing.</p>
+    </div>
+
+    <div class="timer-wrap">
+      <div class="timer-display" id="timerDisplay">5:00</div>
+      <div class="timer-controls">
+        <button class="timer-btn" id="timerStartBtn" onclick="toggleTimer()">Start</button>
+        <button class="timer-btn secondary" onclick="resetTimer()">Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Keep This One Forever</h2>
+    <p class="section-intro">Everything above is for right after a run. This one is for whenever, an interview waiting room, 2am, five minutes before you walk into a room that matters.</p>
+    <ol class="anchor-list">
+      <li>
+        <span class="anchor-num">5</span>
+        <span class="anchor-text"><strong>Things you can see</strong>Really look, don't just glance. A leaf, a light, a crack in the pavement.</span>
+      </li>
+      <li>
+        <span class="anchor-num">3</span>
+        <span class="anchor-text"><strong>Things you can feel</strong>The bench under you, fabric against skin, the ground under your feet.</span>
+      </li>
+      <li>
+        <span class="anchor-num">2</span>
+        <span class="anchor-text"><strong>Things you can hear</strong>Traffic, wind, your own breathing.</span>
+      </li>
+    </ol>
+    <p style="margin-top:18px; color:var(--ink-soft); font-size:15px;">By the time you've found all ten, your mind has stopped spinning and come back into the room. This one works anywhere. Keep it.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <div class="callout">
+      <p>None of this expires when the section war ends. Bring it to your next run, your next workout, your next hard morning. And if you'd rather sit with people than sit alone, we're around twice a week, come find us.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo-footer-badge">
+      <img src="data:image/png;base64,<!-- LOGO_IMAGE_DATA_STRIPPED_FOR_REFERENCE -->" alt="Joka Meditates">
+    </div>
+    <div class="footer-note">Joka Meditates, IIM Calcutta, twice a week, a little at a time.</div>
+  </footer>
+
+</div>
+
+<script>
+  /* ---------- Sound (synthesized, no audio files, nothing to host) ---------- */
+  let soundEnabled = true;
+  let audioCtx = null;
+
+  function getAudioCtx(){
+    if (!audioCtx){
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!Ctx) return null;
+      audioCtx = new Ctx();
+    }
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    return audioCtx;
+  }
+
+  function playTone(freq, duration, volume){
+    if (!soundEnabled) return;
+    const ctx = getAudioCtx();
+    if (!ctx) return;
+    try {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(volume || 0.07, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + duration);
+    } catch(e){ /* audio not available, fail silently */ }
+  }
+
+  function playChime(){
+    if (!soundEnabled) return;
+    playTone(523.25, 0.9, 0.08);
+    setTimeout(function(){ playTone(659.25, 1.2, 0.07); }, 200);
+  }
+
+  function toggleSound(){
+    soundEnabled = !soundEnabled;
+    document.getElementById('soundToggle').textContent = soundEnabled ? 'Sound on' : 'Sound off';
+    if (soundEnabled) getAudioCtx();
+  }
+
+  /* ---------- Reusable breathing widget ---------- */
+  function createBreatheWidget(circleId, labelId, btnId, phases){
+    const circle = document.getElementById(circleId);
+    const label = document.getElementById(labelId);
+    const btn = document.getElementById(btnId);
+    let running = false;
+    let phaseIndex = 0;
+    let timeoutId = null;
+
+    function runPhase(){
+      const phase = phases[phaseIndex];
+      circle.style.transitionDuration = phase.duration + 's';
+      circle.style.transform = 'scale(' + phase.scale + ')';
+      circle.textContent = phase.label;
+      label.textContent = phase.label + ' · ' + phase.duration + ' seconds';
+      if (phase.tone) playTone(phase.tone, Math.min(phase.duration * 0.5, 1.1), 0.055);
+      phaseIndex = (phaseIndex + 1) % phases.length;
+      timeoutId = setTimeout(runPhase, phase.duration * 1000);
+    }
+
+    btn.addEventListener('click', function(){
+      running = !running;
+      if (running){
+        getAudioCtx();
+        btn.textContent = 'Stop';
+        phaseIndex = 0;
+        runPhase();
+      } else {
+        btn.textContent = 'Start';
+        clearTimeout(timeoutId);
+        circle.style.transitionDuration = '.6s';
+        circle.style.transform = 'scale(' + phases[phases.length - 1].scale + ')';
+        circle.textContent = 'Ready';
+        label.textContent = "Press start when you're ready";
+      }
+    });
+  }
+
+  // Extended exhale: 4 in, 6 out. Lower tone on the exhale, matching the longer breath.
+  createBreatheWidget('exhaleCircle', 'exhaleLabel', 'exhaleBtn', [
+    { label: 'Breathe in', duration: 4, scale: 1, tone: 440 },
+    { label: 'Breathe out', duration: 6, scale: 0.7, tone: 330 }
+  ]);
+
+  // Box breathing: 4-4-4-4. Tone only on the in/out edges, silence through the holds.
+  createBreatheWidget('boxCircle', 'boxLabel', 'boxBtn', [
+    { label: 'Breathe in', duration: 4, scale: 1, tone: 440 },
+    { label: 'Hold', duration: 4, scale: 1, tone: null },
+    { label: 'Breathe out', duration: 4, scale: 0.72, tone: 330 },
+    { label: 'Hold', duration: 4, scale: 0.72, tone: null }
+  ]);
+
+  /* ---------- 5 minute countdown timer ---------- */
+  let timeLeft = 300;
+  let timerRunning = false;
+  let timerInterval = null;
+  const timerDisplay = document.getElementById('timerDisplay');
+  const timerStartBtn = document.getElementById('timerStartBtn');
+
+  function formatTime(t){
+    const m = Math.floor(t / 60);
+    const s = t % 60;
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function toggleTimer(){
+    if (timerRunning){
+      clearInterval(timerInterval);
+      timerRunning = false;
+      timerStartBtn.textContent = 'Start';
+    } else {
+      getAudioCtx();
+      timerRunning = true;
+      timerStartBtn.textContent = 'Pause';
+      timerInterval = setInterval(function(){
+        if (timeLeft > 0){
+          timeLeft--;
+          timerDisplay.textContent = formatTime(timeLeft);
+        } else {
+          clearInterval(timerInterval);
+          timerRunning = false;
+          timerStartBtn.textContent = 'Start';
+          timerDisplay.textContent = 'Done';
+          playChime();
+        }
+      }, 1000);
+    }
+  }
+
+  function resetTimer(){
+    clearInterval(timerInterval);
+    timerRunning = false;
+    timeLeft = 300;
+    timerDisplay.textContent = formatTime(timeLeft);
+    timerStartBtn.textContent = 'Start';
+  }
+</script>
+
+</body>
+</html>
