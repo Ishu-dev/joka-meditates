@@ -48,12 +48,18 @@ Owner picked the Sanskrit-named colored set (`01_muladhara.png` through `07_saha
 
 Action before publishing to `/team`: crop all six to one aspect ratio (recommend 4:5 portrait), serve via `next/image`.
 
+## Events (`events/` and `public/events/`)
+
+International Yoga Day, 21 June 2024, IIM Calcutta. 17 photos received in `assets-inbox/JM_IYD_selected/` (5973x3982 camera JPEGs, 159MB total), processed 2026-08-25 to 1600px JPEG q72, renamed chronologically `yoga-day-01.jpg` through `yoga-day-17.jpg`, all 138-316KB. Originals preserved in `assets-inbox/`. Shot list: livestream viewing session, seated poses on mats, crowd in club polos, team photo in front of the IIMC banner.
+
 ## Still missing (owner, not code work)
 
-1. Event photos (Yoga Day etc.) into `/public/events`
+1. Event photos beyond Yoga Day, as they happen
 2. Guided meditation audio into `/public/audio`, if `/practice` gets a player
 3. `favicon.ico` (og-image can be generated with `@vercel/og` from the logo and tokens)
-4. Real WhatsApp community link and session schedule
+4. Real session schedule (day, time, location)
+
+Resolved 2026-08-25: WhatsApp community link received and wired into `/join`.
 
 ## Decorative usage rules (from README, enforced in build)
 

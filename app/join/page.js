@@ -17,14 +17,19 @@ export default function JoinPage() {
       </div>
       <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
         <a
+          href="https://chat.whatsapp.com/GlJ7rURYrjT88BT8h5IwYR"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="rounded-full bg-deep px-6 py-3 text-sm font-medium text-paper hover:opacity-90 transition-opacity"
+        >
+          Join the WhatsApp community
+        </a>
+        <a
           href="mailto:joka-meditates@email.iimcal.ac.in"
-          className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-paper hover:opacity-90 transition-opacity"
+          className="rounded-full border border-deep px-6 py-3 text-sm font-medium text-deep hover:bg-deep-soft transition-colors"
         >
           Write to us
         </a>
-        <span className="rounded-full border border-rule px-6 py-3 text-sm text-ink-soft">
-          WhatsApp community link coming soon
-        </span>
       </div>
     </div>
   );
