@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
 
 export const metadata = { title: "Events" };
 
@@ -18,7 +19,7 @@ export default function EventsPage() {
       </header>
       <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
         {photos.map((src, i) => (
-          <li key={src}>
+          <Reveal as="li" key={src} delay={(i % 2) * 60}>
             <Image
               src={src}
               alt={`International Yoga Day session photo ${i + 1}, IIM Calcutta`}
@@ -27,7 +28,7 @@ export default function EventsPage() {
               loading="lazy"
               className="rounded-card border border-rule object-cover"
             />
-          </li>
+          </Reveal>
         ))}
       </ul>
     </div>

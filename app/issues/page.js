@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 import { getIssues } from "@/lib/issues";
 
 export const metadata = {
@@ -28,8 +29,8 @@ export default async function IssuesPage() {
         </p>
       </header>
       <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-        {issues.map((issue) => (
-          <li key={issue.slug}>
+        {issues.map((issue, i) => (
+          <Reveal as="li" key={issue.slug} delay={i * 60}>
             <Link
               href={`/issues/${issue.slug}`}
               className="group flex h-full flex-col rounded-card border border-rule bg-paper p-6 transition-colors hover:border-accent"
@@ -49,7 +50,7 @@ export default async function IssuesPage() {
                 {formatDate(issue.published_at)}
               </span>
             </Link>
-          </li>
+          </Reveal>
         ))}
       </ul>
     </div>

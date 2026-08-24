@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 
 export const metadata = { title: "Practice" };
 
@@ -29,8 +30,8 @@ export default function PracticePage() {
         issue.
       </p>
       <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-        {guides.map(({ href, title, meta }) => (
-          <li key={href}>
+        {guides.map(({ href, title, meta }, i) => (
+          <Reveal as="li" key={href} delay={i * 60}>
             <Link
               href={href}
               className="block h-full rounded-card border border-rule p-6 transition-colors hover:border-accent"
@@ -38,7 +39,7 @@ export default function PracticePage() {
               <span className="font-display text-xl text-ink">{title}</span>
               <span className="mt-2 block text-sm text-ink-soft">{meta}</span>
             </Link>
-          </li>
+          </Reveal>
         ))}
       </ul>
     </div>

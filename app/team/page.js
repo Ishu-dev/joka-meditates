@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
 
 export const metadata = { title: "Team" };
 
@@ -21,9 +22,11 @@ export default function TeamPage() {
         </p>
       </header>
       <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
-        {members.map(({ img, name, role }) => (
-          <li
+        {members.map(({ img, name, role }, i) => (
+          <Reveal
+            as="li"
             key={name}
+            delay={i * 50}
             className="overflow-hidden rounded-card border border-rule text-center"
           >
             <Image
@@ -38,7 +41,7 @@ export default function TeamPage() {
               <p className="font-medium text-ink">{name}</p>
               <p className="text-xs text-ink-soft">{role}</p>
             </div>
-          </li>
+          </Reveal>
         ))}
       </ul>
     </div>
