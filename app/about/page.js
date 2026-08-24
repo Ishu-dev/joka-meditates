@@ -17,9 +17,6 @@ export default function AboutPage() {
           When our Instagram was permanently disabled, this site and the issue
           became the only two doors into the club. Both stay open.
         </p>
-        <p>
-          Faculty coordinator: Prof. Anupama (Organisational Behaviour).
-        </p>
       </div>
       <div className="mt-8 flex gap-3">
         <Link

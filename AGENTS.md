@@ -218,7 +218,7 @@ Organizer-only write access via Supabase RLS policies, public read access to `is
 - Harshavardhan Devsoth, Marketing Head
 - Meghana Vihulekar, Practice & Wellbeing Head
 - Chandana Amireddy, Events Head
-- Faculty coordinator: Prof. Anupama (OB)
+- Faculty coordinator: none currently, the previously listed name was wrong. Do not add one unless the owner confirms.
 
 ## Contact
 

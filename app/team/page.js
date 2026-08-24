@@ -17,8 +17,7 @@ export default function TeamPage() {
       <header className="text-center">
         <h1 className="font-display text-4xl text-ink">Team</h1>
         <p className="mx-auto mt-3 max-w-lg text-ink-soft">
-          Batch 2026-27. Faculty coordinator: Prof. Anupama (Organisational
-          Behaviour).
+          Batch 2026-27.
         </p>
       </header>
       <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3">
