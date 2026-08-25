@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import Lotus3DGate from "@/components/Lotus3DGate";
 import { getIssues } from "@/lib/issues";
 
 export default function HomePage() {
@@ -32,6 +33,9 @@ export default function HomePage() {
             >
               Join a session
             </Link>
+          </div>
+          <div className="mx-auto mt-6 max-w-sm">
+            <Lotus3DGate />
           </div>
         </section>
       </Reveal>

@@ -1,6 +1,7 @@
 import { Cormorant_Garamond, IBM_Plex_Sans } from "next/font/google";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import Mascot from "@/components/Mascot";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -50,6 +51,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer />
+        <Mascot />
       </body>
     </html>
   );

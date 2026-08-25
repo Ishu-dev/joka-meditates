@@ -110,6 +110,20 @@ a {
   }
 }
 
+@keyframes mascot-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.mascot-bob {
+  animation: mascot-bob 3s ease-in-out infinite;
+}
+
 @keyframes breathe-glow {
   0%,
   100% {
