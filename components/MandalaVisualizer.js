@@ -13,7 +13,7 @@ const PRESETS = [
 ];
 
 function hexToRgb(hex) {
-  const h = hex.trim().replace("#", "");
+  const h = (hex || "").trim().replace("#", "");
   if (h.length !== 6) return null;
   return [
     parseInt(h.slice(0, 2), 16),
@@ -22,7 +22,19 @@ function hexToRgb(hex) {
   ];
 }
 
-const rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
+function makeSprite(rgb, size = 64) {
+  const c = document.createElement("canvas");
+  c.width = size;
+  c.height = size;
+  const g = c.getContext("2d");
+  const grad = g.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+  grad.addColorStop(0, `rgba(${rgb[0]},${rgb[1]},${rgb[2]},1)`);
+  grad.addColorStop(0.35, `rgba(${rgb[0]},${rgb[1]},${rgb[2]},0.55)`);
+  grad.addColorStop(1, `rgba(${rgb[0]},${rgb[1]},${rgb[2]},0)`);
+  g.fillStyle = grad;
+  g.fillRect(0, 0, size, size);
+  return c;
+}
 
 export default function MandalaVisualizer() {
   const canvasRef = useRef(null);
@@ -34,9 +46,13 @@ export default function MandalaVisualizer() {
     analyser: null,
     data: null,
     petals: 8,
+    count: 2400,
     accent: [194, 68, 126],
     deep: [47, 93, 84],
+    paper: [244, 242, 234],
+    sprites: null,
     reduced: false,
+    parts: null,
   });
   const [running, setRunning] = useState(false);
   const [micOn, setMicOn] = useState(false);
@@ -44,83 +60,117 @@ export default function MandalaVisualizer() {
   const [freqIdx, setFreqIdx] = useState(3);
   const [micError, setMicError] = useState(null);
 
-  const drawFrame = useCallback((time) => {
-    const canvas = canvasRef.current;
+  const initParticles = useCallback(() => {
     const s = st.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    const w = canvas.width;
-    const h = canvas.height;
-    const cx = w / 2;
-    const cy = h / 2;
-    const R = Math.min(w, h) * 0.36;
-
-    let bass = 0.25;
-    let mid = 0.3;
-    let high = 0.2;
-    if (s.analyser && s.data) {
-      s.analyser.getByteFrequencyData(s.data);
-      const avg = (from, to) => {
-        let sum = 0;
-        for (let i = from; i < to; i++) sum += s.data[i];
-        return sum / (to - from) / 255;
-      };
-      bass = Math.max(avg(2, 10), 0.04);
-      mid = Math.max(avg(11, 42), 0.04);
-      high = Math.max(avg(43, 100), 0.04);
-    } else {
-      const t = time / 1000;
-      bass = 0.2 + 0.12 * Math.sin(t * 0.8);
-      mid = 0.25 + 0.1 * Math.sin(t * 0.5 + 1);
-      high = 0.15 + 0.08 * Math.sin(t * 1.3 + 2);
+    const n = s.count;
+    const parts = new Float32Array(n * 5);
+    for (let i = 0; i < n; i++) {
+      const ring = i % 3;
+      parts[i * 5] = ring;
+      parts[i * 5 + 1] = i % s.petals;
+      parts[i * 5 + 2] = Math.random();
+      parts[i * 5 + 3] = 0.25 + Math.random() * 0.75;
+      parts[i * 5 + 4] = Math.random() * Math.PI * 2;
     }
-
-    ctx.clearRect(0, 0, w, h);
-    const t = time / 1000;
-
-    const rings = [
-      { r: R * 0.42, band: bass, color: s.deep, alpha: 0.55, count: s.petals, width: 0.2 },
-      { r: R * 0.72, band: mid, color: s.accent, alpha: 0.45, count: s.petals, width: 0.17, dir: -1 },
-      { r: R * 1.04, band: high, color: s.accent, alpha: 0.8, count: s.petals * 2, width: 0.12 },
-    ];
-
-    rings.forEach((ring, k) => {
-      const len = R * (0.28 + ring.band * 0.55);
-      const rot = (k % 2 === 0 ? 1 : -1) * t * 0.12 * (ring.dir || 1) + k * 0.35;
-      ctx.save();
-      ctx.translate(cx, cy);
-      for (let i = 0; i < ring.count; i++) {
-        const a = rot + (i * 2 * Math.PI) / ring.count;
-        ctx.save();
-        ctx.rotate(a);
-        ctx.beginPath();
-        const inner = ring.r * 0.25;
-        const tip = inner + len;
-        const pw = R * ring.width;
-        ctx.moveTo(inner, 0);
-        ctx.quadraticCurveTo(inner + len * 0.45, pw * (0.8 + ring.band), tip, 0);
-        ctx.quadraticCurveTo(inner + len * 0.45, -pw * (0.8 + ring.band), inner, 0);
-        ctx.fillStyle = rgba(ring.color, ring.alpha + ring.band * 0.3);
-        if (k === 2) {
-          ctx.shadowColor = rgba(s.accent, 0.7);
-          ctx.shadowBlur = 10 + bass * 26;
-        }
-        ctx.fill();
-        ctx.restore();
-      }
-      ctx.restore();
-    });
-
-    ctx.beginPath();
-    ctx.arc(cx, cy, R * 0.14 * (1 + bass * 0.6), 0, 2 * Math.PI);
-    ctx.fillStyle = rgba(s.accent, 0.25 + bass * 0.4);
-    ctx.fill();
-    ctx.beginPath();
-    ctx.arc(cx, cy, R * 1.18, 0, 2 * Math.PI);
-    ctx.strokeStyle = rgba(s.deep, 0.35 + mid * 0.3);
-    ctx.lineWidth = Math.max(1, w * 0.002);
-    ctx.stroke();
+    s.parts = parts;
   }, []);
+
+  const buildSprites = useCallback(() => {
+    const s = st.current;
+    const mix = s.accent.map((v, i) => Math.round(v * 0.55 + s.paper[i] * 0.45));
+    s.sprites = [makeSprite(s.deep), makeSprite(mix), makeSprite(s.accent)];
+  }, []);
+
+  const drawFrame = useCallback(
+    (time) => {
+      const canvas = canvasRef.current;
+      const s = st.current;
+      if (!canvas || !s.parts || !s.sprites) return;
+      const ctx = canvas.getContext("2d");
+      const w = canvas.width;
+      const h = canvas.height;
+      const cx = w / 2;
+      const cy = h / 2;
+      const R = Math.min(w, h) * 0.4;
+      const t = time / 1000;
+
+      let bass = 0.22;
+      let mid = 0.28;
+      let high = 0.18;
+      if (s.analyser && s.data) {
+        s.analyser.getByteFrequencyData(s.data);
+        const avg = (from, to) => {
+          let sum = 0;
+          for (let i = from; i < to; i++) sum += s.data[i];
+          return sum / (to - from) / 255;
+        };
+        bass = Math.max(avg(2, 10), 0.05);
+        mid = Math.max(avg(11, 42), 0.05);
+        high = Math.max(avg(43, 100), 0.05);
+      } else {
+        bass = 0.18 + 0.1 * Math.sin(t * 0.8);
+        mid = 0.24 + 0.1 * Math.sin(t * 0.5 + 1);
+        high = 0.14 + 0.08 * Math.sin(t * 1.3 + 2);
+      }
+
+      const bands = [bass, mid, high];
+      const ringBase = [0.38, 0.66, 0.95];
+      const ringSpeed = [0.22, -0.16, 0.1];
+      const sector = (2 * Math.PI) / s.petals;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      ctx.globalCompositeOperation = "source-over";
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = `rgba(${s.paper[0]},${s.paper[1]},${s.paper[2]},0.16)`;
+      ctx.fillRect(0, 0, w, h);
+
+      ctx.globalCompositeOperation = "lighter";
+
+      const parts = s.parts;
+      const n = s.count;
+      for (let i = 0; i < n; i++) {
+        const ring = parts[i * 5];
+        const sec = parts[i * 5 + 1];
+        const off = parts[i * 5 + 2];
+        const speed = parts[i * 5 + 3];
+        const wob = parts[i * 5 + 4];
+        const band = bands[ring];
+        const dir = ring === 1 ? -1 : 1;
+        const r0 = R * ringBase[ring] * (1 + band * 0.5) * (0.86 + 0.14 * Math.sin(wob + t * speed * 2));
+        const mirror = i % 2 === 0 ? 1 : -1;
+        const a =
+          sec * sector +
+          mirror * off * sector * 0.9 +
+          t * ringSpeed[ring] * speed * 0.6;
+        const rr = r0 * (1 + 0.12 * Math.sin(t * 1.4 + wob * 3) * band * 2);
+        const x = cx + Math.cos(a) * rr;
+        const y = cy + Math.sin(a) * rr;
+        const size = (2 + band * 7) * dpr * (0.5 + speed * 0.5);
+        ctx.globalAlpha = 0.28 + band * 0.6;
+        ctx.drawImage(s.sprites[ring], x - size / 2, y - size / 2, size, size);
+      }
+
+      const coreR = R * 0.12 * (1 + bass * 1.1);
+      ctx.globalAlpha = 0.85;
+      ctx.drawImage(
+        s.sprites[2],
+        cx - coreR * 2,
+        cy - coreR * 2,
+        coreR * 4,
+        coreR * 4
+      );
+
+      ctx.globalCompositeOperation = "source-over";
+      ctx.globalAlpha = 0.3 + mid * 0.3;
+      ctx.beginPath();
+      ctx.arc(cx, cy, R * 1.16, 0, 2 * Math.PI);
+      ctx.strokeStyle = `rgba(${s.deep[0]},${s.deep[1]},${s.deep[2]},1)`;
+      ctx.lineWidth = Math.max(1, dpr);
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+    },
+    []
+  );
 
   useEffect(() => {
     const s = st.current;
@@ -130,8 +180,12 @@ export default function MandalaVisualizer() {
       const cs = getComputedStyle(document.documentElement);
       const a = hexToRgb(cs.getPropertyValue("--accent"));
       const d = hexToRgb(cs.getPropertyValue("--deep"));
+      const p = hexToRgb(cs.getPropertyValue("--paper"));
       if (a) s.accent = a;
       if (d) s.deep = d;
+      if (p) s.paper = p;
+      buildSprites();
+      if (s.reduced) drawFrame(0);
     };
     readTokens();
     const themeObserver = new MutationObserver(readTokens);
@@ -141,18 +195,24 @@ export default function MandalaVisualizer() {
     });
 
     const canvas = canvasRef.current;
+    s.count = canvas.clientWidth < 480 ? 1200 : 2400;
+    initParticles();
+
     const resize = () => {
       if (!canvas) return;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = canvas.clientWidth * dpr;
       canvas.height = canvas.clientHeight * dpr;
+      const ctx = canvas.getContext("2d");
+      ctx.fillStyle = `rgba(${s.paper[0]},${s.paper[1]},${s.paper[2]},1)`;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
       if (s.reduced) drawFrame(0);
     };
     resize();
     window.addEventListener("resize", resize);
 
     if (s.reduced) {
-      drawFrame(0);
+      drawFrame(2000);
       return () => {
         themeObserver.disconnect();
         window.removeEventListener("resize", resize);
@@ -170,12 +230,13 @@ export default function MandalaVisualizer() {
       themeObserver.disconnect();
       window.removeEventListener("resize", resize);
     };
-  }, [drawFrame]);
+  }, [drawFrame, initParticles, buildSprites]);
 
   useEffect(() => {
     st.current.petals = petals;
+    initParticles();
     if (st.current.reduced) drawFrame(0);
-  }, [petals, drawFrame]);
+  }, [petals, initParticles, drawFrame]);
 
   async function toggleSound() {
     const s = st.current;
@@ -235,26 +296,27 @@ export default function MandalaVisualizer() {
     }
   }
 
-  useEffect(() => {
-    const s = st.current;
-    return () => {
+  useEffect(
+    () => () => {
+      const s = st.current;
       cancelAnimationFrame(s.raf);
       s.drone?.stop();
       s.micStream?.getTracks().forEach((track) => track.stop());
       try {
         s.micSource?.disconnect();
       } catch {}
-    };
-  }, []);
+    },
+    []
+  );
 
   return (
     <div className="rounded-card border border-rule bg-deep-soft/20 p-5 sm:p-8">
-      <div className="relative mx-auto aspect-square w-full max-w-md">
+      <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-full">
         <canvas
           ref={canvasRef}
           className="h-full w-full"
           role="img"
-          aria-label="Generative mandala that reacts to sound"
+          aria-label="Particle mandala that reacts to sound"
         />
       </div>
 
@@ -306,10 +368,10 @@ export default function MandalaVisualizer() {
         </div>
 
         <label className="block text-center text-sm text-ink-soft">
-          Petals: {petals}
+          Symmetry: {petals} petals
           <input
             type="range"
-            min="6"
+            min="5"
             max="12"
             value={petals}
             onChange={(e) => setPetals(Number(e.target.value))}

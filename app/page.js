@@ -1,13 +1,15 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import Lotus3DGate from "@/components/Lotus3DGate";
+import HeroOrnament from "@/components/HeroOrnament";
 import { getIssues } from "@/lib/issues";
 
 export default function HomePage() {
   return (
     <div className="mx-auto max-w-3xl px-4">
       <Reveal>
-        <section className="py-16 text-center">
+        <section className="relative py-16 text-center overflow-hidden">
+          <HeroOrnament />
           <p className="text-sm uppercase tracking-[0.3em] text-deep">
             IIM Calcutta · Heartfulness SIG
           </p>
@@ -20,7 +22,7 @@ export default function HomePage() {
             week we send an issue: one practice, one verse, one small experiment
             in stillness.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 relative z-10">
             <Link
               href="/issues"
               className="rounded-full bg-accent px-6 py-3 text-sm font-medium text-paper hover:opacity-90 transition-opacity"
@@ -34,11 +36,12 @@ export default function HomePage() {
               Join a session
             </Link>
           </div>
-          <div className="mx-auto mt-6 max-w-sm">
-            <Lotus3DGate />
-          </div>
         </section>
       </Reveal>
+
+      <div className="mx-auto -mt-4 max-w-md relative z-10">
+        <Lotus3DGate />
+      </div>
 
       <LatestIssueStrip />
     </div>
