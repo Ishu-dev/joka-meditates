@@ -124,14 +124,70 @@ a {
   animation: mascot-bob 3s ease-in-out infinite;
 }
 
+@keyframes float-gentle {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+.animate-float {
+  animation: float-gentle 6s ease-in-out infinite;
+  will-change: transform;
+}
+
 @keyframes breathe-glow {
   0%,
   100% {
-    box-shadow: 0 0 24px 4px color-mix(in srgb, var(--accent) 25%, transparent);
+    box-shadow: 0 0 20px 2px color-mix(in srgb, var(--accent) 20%, transparent);
   }
   50% {
-    box-shadow: 0 0 48px 12px color-mix(in srgb, var(--accent) 40%, transparent);
+    box-shadow: 0 0 45px 10px color-mix(in srgb, var(--accent) 45%, transparent);
   }
+}
+
+.animate-breathe-glow {
+  animation: breathe-glow 5s ease-in-out infinite;
+}
+
+@keyframes pulse-subtle {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--accent) 15%, transparent) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-sweep 3.5s infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
