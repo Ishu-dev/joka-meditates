@@ -78,6 +78,46 @@ export default function IssueBlock({ block }) {
           {block.text}
         </aside>
       );
+    case "kicker":
+      return (
+        <p className="text-xs font-bold uppercase tracking-widest text-deep mt-8 mb-1">
+          {block.text}
+        </p>
+      );
+    case "prose":
+      return (
+        <div className="my-4 rounded-card bg-deep-soft/40 p-6 leading-relaxed text-ink space-y-4">
+          {block.text.split("\n\n").map((para, i) => (
+            <p key={i}>{para}</p>
+          ))}
+        </div>
+      );
+    case "card":
+      return (
+        <div className="my-3 rounded-card bg-accent-soft p-5">
+          <h4 className="font-semibold text-ink text-base mb-1">{block.title}</h4>
+          <p className="text-sm text-ink-soft m-0">{block.body}</p>
+        </div>
+      );
+    case "intro":
+      return (
+        <p className="my-3 text-sm text-ink-soft leading-relaxed italic">{block.text}</p>
+      );
+    case "teacher":
+      return (
+        <div className="py-4 border-t border-rule first:border-t-0">
+          <h4 className="font-display italic font-semibold text-2xl text-accent mb-2">
+            {block.name}
+          </h4>
+          <p className="text-sm text-ink leading-relaxed m-0">{block.body}</p>
+        </div>
+      );
+    case "callout":
+      return (
+        <div className="my-8 rounded-card bg-accent-soft p-6 text-center text-ink font-medium">
+          {block.text}
+        </div>
+      );
     case "divider":
       return <hr className="my-10 border-0 border-t border-rule" />;
     default:

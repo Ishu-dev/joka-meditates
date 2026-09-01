@@ -656,5 +656,196 @@
         "sense": "Sense"
       }
     ]
+  },
+  {
+    "slug": "issue-05",
+    "number": 5,
+    "title": "Nobody's Got This Figured Out",
+    "subtitle": "The people who look calmest right now are usually just better at hiding it.",
+    "published_at": "2026-09-01T00:00:00Z",
+    "content": [
+      {
+        "type": "heading",
+        "text": "Nobody's Got This Figured Out"
+      },
+      {
+        "type": "lede",
+        "text": "This term is genuinely heavier than most, coursework stacking on top of SIP deliverables still being wrapped up, and it's landing at the same time for almost everyone in your batch."
+      },
+      {
+        "type": "quote",
+        "text": "You're allowed to struggle. So is everyone around you."
+      },
+      {
+        "type": "text",
+        "text": "Nobody's grade reflects how many nights they lay awake before it. Worth remembering the next time a rank list makes you feel like you're the only one struggling."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "kicker",
+        "text": "People"
+      },
+      {
+        "type": "heading",
+        "text": "You're Not Supposed to Do This Alone"
+      },
+      {
+        "type": "prose",
+        "text": "The instinct under pressure is to disappear into the syllabus and cut everything else out. That's the wrong move. A five-minute call home, a message to a senior who's already been through this exact term, ten minutes with a friend who isn't even talking about exams, none of it costs you study time in any way that matters. You don't have to carry this by yourself.\n\nSeniors especially. Someone in the batch above has sat exactly where you're sitting, with the exact same panic, less than a year ago. Ask them something small if asking something big feels like too much."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "kicker",
+        "text": "Outlet"
+      },
+      {
+        "type": "heading",
+        "text": "Keep One Thing That Isn't Studying"
+      },
+      {
+        "type": "prose",
+        "text": "Whatever it is, sport, music, a show, cooking, don't let this term take it away entirely. The people who white-knuckle through exam season with zero outlet burn out faster and recover slower than the people who protect even twenty minutes a day for something that has nothing to do with grades. You are not just a rank on a list. Keep proving that to yourself, especially this term."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "kicker",
+        "text": "Body"
+      },
+      {
+        "type": "heading",
+        "text": "Move Every Day, a Little More Than Yesterday"
+      },
+      {
+        "type": "card",
+        "title": "Walking counts",
+        "body": "A short walk between study blocks does more for a stuck brain than another twenty minutes at the desk usually will."
+      },
+      {
+        "type": "card",
+        "title": "Cardio, in short bursts",
+        "body": "Doesn't need to be long. Ten minutes of getting the heart rate up is enough to count for the day."
+      },
+      {
+        "type": "card",
+        "title": "Bodyweight, zero equipment",
+        "body": "Squats, push-ups, a plank, right there in your room. Increase it slightly every day rather than staying flat."
+      },
+      {
+        "type": "note",
+        "text": "Blood moving through the body clears the head in a way a longer study session can't. And there's a real, felt confidence in watching yourself do a little more this week than last week, one that carries into the exam room better than the syllabus alone ever does."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "kicker",
+        "text": "Fuel"
+      },
+      {
+        "type": "heading",
+        "text": "Eat Like It Matters, Most of the Time"
+      },
+      {
+        "type": "prose",
+        "text": "Health is the actual priority here, not a side quest to studying. Regular meals, real food more often than not, water instead of another coffee when you're not sure which one you actually need.\n\nAn occasional indulgence, the 2am maggi, the celebratory dessert, is completely fine and not something to feel bad about. The pattern is what matters, not any single meal."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "kicker",
+        "text": "Perspective"
+      },
+      {
+        "type": "heading",
+        "text": "Three Teachers on the Same Problem"
+      },
+      {
+        "type": "intro",
+        "text": "Different traditions, same underlying question: how do you stop suffering from wanting things to be other than they are."
+      },
+      {
+        "type": "teacher",
+        "name": "Gautam Buddha",
+        "body": "Built his entire teaching around one observation: suffering comes from clinging, to outcomes, to comparisons, to a version of events that hasn't happened yet. The exam result you're anxious about right now is a future you're gripping before it exists. Loosening that grip doesn't mean not caring, it means not adding a second layer of suffering on top of the studying you're already doing."
+      },
+      {
+        "type": "teacher",
+        "name": "Mahavira",
+        "body": "Taught a discipline of the self so total that his own life is the proof of concept, extreme self-command, built one small act of restraint at a time. The relevant piece for this term isn't the extremity, it's the method: discipline is built in small repeated choices, not in one heroic push the night before an exam."
+      },
+      {
+        "type": "teacher",
+        "name": "Osho",
+        "body": "Spent much of his teaching arguing against exactly what most people assume meditation is, sitting still, forcing the mind blank, waiting for peace to arrive. He pushed the opposite: that stillness on the other side of real intensity, movement, breath, even sound, often works better for a modern, wired-up mind than sitting silently ever could. Which sets up the next section."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "kicker",
+        "text": "Practice"
+      },
+      {
+        "type": "heading",
+        "text": "Meditation Isn't Doing Nothing"
+      },
+      {
+        "type": "intro",
+        "text": "The image most people have, sitting cross-legged, mind empty, is one specific technique, not the definition of the whole thing. Meditation is closer to full, undistracted awareness, and awareness doesn't always need stillness to arrive. Sometimes the body has to work something out first."
+      },
+      {
+        "type": "breathing",
+        "phases": [
+          {
+            "label": "Shake it out",
+            "duration": 30,
+            "scale": 0.9,
+            "tone": 349,
+            "cue": "Loose, fast, whole body. No shape to it, just get it moving."
+          },
+          {
+            "label": "Bigger movement",
+            "duration": 30,
+            "scale": 1.15,
+            "tone": 392,
+            "cue": "Arms, legs, in place. Let the heart rate climb."
+          },
+          {
+            "label": "Let it out",
+            "duration": 15,
+            "scale": 0.6,
+            "tone": 262,
+            "cue": "One loud exhale. A sound if you want one. Then stop."
+          },
+          {
+            "label": "Freeze",
+            "duration": 30,
+            "scale": 0.6,
+            "cue": "Completely still. Notice the heart still going."
+          },
+          {
+            "label": "Let it settle",
+            "duration": 60,
+            "scale": 0.8,
+            "tone": 220,
+            "cue": "Eyes closed or soft gaze. Just watch what is left."
+          }
+        ]
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "callout",
+        "text": "Pick one thing from this issue, not all six. The exam doesn't care which one you pick. Your term will go better either way."
+      }
+    ]
   }
 ]
