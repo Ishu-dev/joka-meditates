@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { sessions, formatSessionDate } from "@/data/sessions";
 import Critter from "@/components/Critter";
+import { gallery } from "@/data/gallery";
 
 export const metadata = {
   title: "Sessions",
@@ -96,6 +97,34 @@ export default function EventsPage() {
           </div>
         </section>
       ))}
+
+      <section className="band" aria-labelledby="more-h">
+        <div className="wrap stack">
+          <h2 id="more-h" className="head head--wide">
+            More from the room.
+          </h2>
+        </div>
+        {gallery.map((g) => (
+          <div key={g.title} className="more">
+            <p className="wrap title">
+              {g.title}, {g.when}.
+            </p>
+            <ul className="rail" tabIndex={0} aria-label={`Photographs: ${g.title}, ${g.when}`}>
+              {g.photos.map((ph, i) => (
+                <li key={ph.src}>
+                  <Image
+                    src={ph.src}
+                    alt={`${g.title}, ${g.when}, photograph ${i + 1} of ${g.photos.length}`}
+                    width={ph.w}
+                    height={ph.h}
+                    sizes="(min-width: 60rem) 34vw, 80vw"
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
 
       <section className="band field-pond cut-b" aria-labelledby="seen-h">
         <div className="wrap stack">

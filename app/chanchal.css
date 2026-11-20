@@ -29,3 +29,8 @@ html.motion-off .chanchal-say__caret { animation: none; }
 .names { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gap-columns); margin: 0; padding: 0; list-style: none; }
 .names li { padding-block: var(--space-sm); border-top: 1px solid var(--line); font-weight: 600; font-size: var(--text-lg); }
 @media (max-width: 40rem) { .names { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- more photographs, one rail to an event ---------- */
+
+.more { margin-top: var(--space-2xl); }
+.more .rail { margin-top: var(--space-md); }
