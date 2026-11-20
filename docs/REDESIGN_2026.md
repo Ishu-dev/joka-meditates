@@ -152,7 +152,7 @@ The owner liked the look and asked for a second round, then asked to pause part 
 
 ## Live since 20 November 2026
 - https://joka-meditates.vercel.app, Vercel project `joka-meditates` on the owner's personal Vercel account, linked to `Ishu-dev/joka-meditates`. Every push to `main` deploys. Before this there was no deployment, whatever older notes say.
-- No custom domain yet. The owner is discussing it with the club. On 20 November `jokameditates.org` was free at $9.99 for the first year and $10.99 a year after, and `jokameditates.com` at $12.03 a year (Vercel's prices). Vercel does not sell `.in` names.
+- The site's own address since 21 November 2026 is https://jokameditates.org. It was bought through Vercel on the owner's personal account for $9.99 plus 18% GST ($11.79), and it renews by itself at $10.99 a year. `www.jokameditates.org` sends visitors to it (a 308 redirect), and the `vercel.app` address keeps working. The domain is in the owner's name: before the owner graduates in 2027 it has to move to the club, or it lapses.
 - Still to decide: moving the project to a Vercel account owned by the club.
 - The database keys are not set on Vercel, so `/admin` has nothing behind it. The public pages do not need them.
 
