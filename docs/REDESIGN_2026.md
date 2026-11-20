@@ -149,3 +149,17 @@ The owner liked the look and asked for a second round, then asked to pause part 
 
 ### Working files
 `~/Documents/JM_website/wip_2026-11-18/` holds the sprite drafts, the pose test harness (`fig/figtest.mjs`), the sound renderer and listening test (`snd/render.mjs`, `snd/hear.sh`) and the screenshot scripts in `scripts/`: `shot.mjs` (a route, a window size and scroll positions or selectors), `strip.mjs` (frames of Chanchal landing, swimming, breathing, talking, and of the bloom), `check.mjs` (phone, reduced motion, the support page, asked to sit) and `edges.mjs` (a close-up of every creature on a band edge). They were copied there because the session's scratch folder does not survive a restart.
+
+## Live since 20 November 2026
+- https://joka-meditates.vercel.app, Vercel project `joka-meditates` on the owner's personal Vercel account, linked to `Ishu-dev/joka-meditates`. Every push to `main` deploys. Before this there was no deployment, whatever older notes say.
+- No custom domain yet. The owner is discussing it with the club. On 20 November `jokameditates.org` was free at $9.99 for the first year and $10.99 a year after, and `jokameditates.com` at $12.03 a year (Vercel's prices). Vercel does not sell `.in` names.
+- Still to decide: moving the project to a Vercel account owned by the club.
+- The database keys are not set on Vercel, so `/admin` has nothing behind it. The public pages do not need them.
+
+
+## Added on 21 November 2026
+- The first years on `/team`. A section "The first years." lists the twenty students of the 63rd batch who joined in July 2026, from the `firstYears` array in `app/team/page.js`. The names come from the 31 July message in the club's core group. The group has grown since, so check the list with the club before the next change.
+- "More from the room." on `/events`. Twenty-six photographs from six events, taken from the club's Instagram posts, one rail per event. The list is `data/gallery.js` and the files are in `public/photos/more/`. Photographs that exist only as stories are not here, because the originals were not to hand.
+- The visit count in the footer: "N visits since 21 November 2026. M here now." `components/VisitCount.js` counts a browser once a day (it keeps the date in `localStorage` under `jm-visit`) and says it is still here every 60 seconds. `app/api/visits/route.js` keeps the total and the list of who is here in a Redis store, and drops anyone not heard from for 120 seconds.
+  - The store is `joka-visits` (Upstash Redis) on the owner's Vercel account, connected to the project for Production and Preview. It sets `KV_REST_API_URL` and `KV_REST_API_TOKEN`. Without them the route answers with nulls and the footer line does not show, which is what happens on a local dev server.
+  - The count is of browsers, not people, and it starts on 21 November 2026. Nothing about a visitor is stored except a random id the browser makes for the tab, which is dropped two minutes after the tab goes quiet.

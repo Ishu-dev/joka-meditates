@@ -28,7 +28,7 @@ Joka Meditates is IIM Calcutta's student-run Heartfulness meditation Student Int
 
 - Next.js 14 (App Router), React 18, Tailwind CSS v3
 - Supabase (Postgres + Auth) for the issues archive, budget data, and organizer login
-- Deployed on Vercel, existing GitHub-connected project, this is not a new repo
+- Deployed on Vercel since 20 November 2026: project `joka-meditates`, live at https://joka-meditates.vercel.app, built from `main` of this GitHub repo on every push. This is not a new repo
 - Fonts: Cormorant Garamond (display/headings), IBM Plex Sans (body/UI), loaded via `next/font`, not a runtime Google Fonts `<link>` (that shortcut was fine for standalone newsletter files, it is not fine for a site people load repeatedly)
 - 3D: `react-three-fiber`, lazy-loaded via `next/dynamic` (`ssr: false`)
 - Animation: CSS first, Motion (`motion`, motion.dev) for React micro-interactions, anime.js v4 only for complex SVG/stagger sequences; both dynamically imported per page, never in the shared bundle
