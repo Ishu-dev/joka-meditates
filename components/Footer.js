@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SiteSwitches from "./SiteSwitches";
+import VisitCount from "./VisitCount";
 
 export default function Footer() {
   return (
@@ -59,6 +60,7 @@ export default function Footer() {
             A student interest group of IIM Calcutta, sitting since 2024. Write to
             joka-meditates@email.iimcal.ac.in. Photographs by Joka Meditates.
           </p>
+          <VisitCount />
           <SiteSwitches />
         </div>
       </div>

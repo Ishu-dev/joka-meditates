@@ -34,3 +34,5 @@ html.motion-off .chanchal-say__caret { animation: none; }
 
 .more { margin-top: var(--space-2xl); }
 .more .rail { margin-top: var(--space-md); }
+
+.visits { font-variant-numeric: tabular-nums; }
