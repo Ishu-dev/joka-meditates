@@ -11,6 +11,14 @@ const members = [
   { img: "/team/chandana.jpeg", name: "Chandana Amireddy", role: "Events Head" },
 ];
 
+// The first-year members, selected in July 2026 (63rd batch), in the order of the selection list.
+const firstYears = [
+  "Meetisha Kurade", "Anurag Sarkar", "Savi Modi", "Antara Mandal", "Priyadarshini",
+  "Vikram Nagmani", "Anushka Hemrom", "Pragna Katragadda", "Rishi Roy", "Anurag Sai Kothi",
+  "Mudita Aggarwal", "Arushi Singh", "Prathamesh Vinayak Killedar", "Abhay Negi", "Mayank Sharma",
+  "Priyanshi Dhaneta", "Rachitkumar Chaudhari", "Kaveti Charitha", "Kanupriya Dwivedi", "Titir Mukherjee",
+];
+
 export default function TeamPage() {
   return (
     <>
@@ -35,6 +43,21 @@ export default function TeamPage() {
                   </figcaption>
                 </figure>
               </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <section className="band field-pond cut-a" aria-labelledby="first-h">
+        <div className="wrap split">
+          <div className="split__a stack">
+            <h2 id="first-h" className="head">
+              The first years.
+            </h2>
+            <p className="lead">Twenty students of the 63rd batch joined in July 2026. They take over next year.</p>
+          </div>
+          <ul className="split__b names">
+            {firstYears.map((name) => (
+              <li key={name}>{name}</li>
             ))}
           </ul>
         </div>
