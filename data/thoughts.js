@@ -1,0 +1,37 @@
+// One thought a day, picked by the IST calendar day. A line with an issue
+// number is quoted word for word from that newsletter issue; the rest were
+// written for the site. Add a line and the rotation grows by a day.
+
+export const thoughts = [
+  { text: "You don't have to finish the thought. You can put it down." },
+  { text: "Two minutes of sitting beats twenty minutes of planning to sit." },
+  { text: "The inbox will still be there. So will your breath. Start with the breath." },
+  { text: "Nobody in the room has it figured out. Some are just quieter about it." },
+  { text: "Pick one thing today and do only that." },
+  { text: "A restless mind needs training, the same way legs do." },
+  { text: "Before you reply, breathe out once. The reply gets better." },
+  { text: "Rest belongs inside the work. Schedule it like a class." },
+  { text: "You're allowed to struggle. So is everyone around you.", issue: 5 },
+  { text: "Your feed is training data. Check what it is training." },
+  { text: "Ten minutes of movement counts. Start before you feel ready." },
+  { text: "Comparison is a full-time job with no stipend." },
+  { text: "The mind wanders. Coming back is the practice." },
+  { text: "Eat like your health is the main project." },
+  { text: "A walk around the lake counts as a meeting with yourself." },
+  { text: "Slow still counts as moving." },
+  { text: "Hold the result loosely. Hold the effort tightly." },
+  { text: "Sleep is the cheapest performance upgrade on campus." },
+  { text: "Being bored on purpose is a skill. Three minutes, no phone." },
+  { text: "You can be ambitious and unhurried in the same week." },
+  { text: "What you practise daily, you get good at. That includes worrying." },
+  { text: "One slow breath is a complete act. You finished something today." },
+  { text: "Say the kind thing while the person is still in the room." },
+  { text: "A rejection tells you about fit. It says little about you." },
+  { text: "Sit in silence long enough and you hear what you actually think." },
+  { text: "Keep one thing that is not studying. It helps the studying." },
+  { text: "Control the mind. Don't let the mind control you.", issue: 4 },
+  { text: "The calmest person in the room is usually just better at hiding it. Be kind." },
+  { text: "Reaching out costs nothing. Staying silent costs more." },
+  { text: "Done with attention beats done in a hurry." },
+  { text: "Tomorrow's version of you is built from today's two minutes." },
+];

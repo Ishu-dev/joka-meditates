@@ -4,32 +4,21 @@ import CountdownTimer from "./CountdownTimer";
 import PlaylistLink from "./PlaylistLink";
 import VersePlate from "./VersePlate";
 
+// Renders one block of a newsletter issue. The block types and their data
+// are unchanged from the shipped issues; only the look moved to the site's
+// new system (the classes live under ".issue" in app/globals.css).
 export default function IssueBlock({ block }) {
   switch (block.type) {
     case "heading":
-      return (
-        <h2 className="font-display mt-10 mb-3 text-3xl text-ink">
-          {block.text}
-        </h2>
-      );
+      return <h2>{block.text}</h2>;
     case "subheading":
-      return (
-        <h3 className="font-display mt-8 mb-2 text-xl text-ink">{block.text}</h3>
-      );
+      return <h3>{block.text}</h3>;
     case "lede":
-      return (
-        <p className="font-display text-xl italic leading-relaxed text-ink-soft">
-          {block.text}
-        </p>
-      );
+      return <p className="issue__lede">{block.text}</p>;
     case "text":
-      return <p className="my-4 leading-relaxed text-ink">{block.text}</p>;
+      return <p>{block.text}</p>;
     case "quote":
-      return (
-        <blockquote className="my-8 border-l-4 border-accent pl-4 font-display text-2xl italic leading-snug text-ink">
-          {block.text}
-        </blockquote>
-      );
+      return <blockquote>{block.text}</blockquote>;
     case "verse":
       return (
         <VersePlate
@@ -40,21 +29,14 @@ export default function IssueBlock({ block }) {
         />
       );
     case "breathing":
-      return (
-        <BreathingWidget
-          phases={block.phases}
-          defaultCycles={block.cycles || 4}
-        />
-      );
+      return <BreathingWidget phases={block.phases} defaultCycles={block.cycles || 4} />;
     case "timer":
       return <CountdownTimer seconds={block.seconds || 60} label={block.label} />;
     case "playlist":
-      return (
-        <PlaylistLink title={block.title} meta={block.meta} href={block.href} />
-      );
+      return <PlaylistLink title={block.title} meta={block.meta} href={block.href} />;
     case "list":
       return (
-        <ol className="my-4 list-decimal space-y-2 pl-6 text-ink">
+        <ol>
           {(block.items || []).map((item, i) => (
             <li key={i}>{item}</li>
           ))}
@@ -69,24 +51,19 @@ export default function IssueBlock({ block }) {
           width={block.width || 800}
           height={block.height || 600}
           loading="lazy"
-          className="my-6 rounded-card border border-rule"
+          className="issue__image"
         />
       );
     case "note":
-      return (
-        <aside className="my-6 rounded-card bg-accent-soft/50 p-4 text-sm text-ink">
-          {block.text}
-        </aside>
-      );
+      return <aside className="issue__note">{block.text}</aside>;
     case "kicker":
-      return (
-        <p className="text-xs font-bold uppercase tracking-widest text-deep mt-8 mb-1">
-          {block.text}
-        </p>
-      );
+      // A one-word category label that sat above a heading ("People",
+      // "Body"). The heading already says it, so the label is kept for
+      // screen readers and left out of view.
+      return <p className="visually-hidden">{block.text}</p>;
     case "prose":
       return (
-        <div className="my-4 rounded-card bg-deep-soft/40 p-6 leading-relaxed text-ink space-y-4">
+        <div className="issue__note">
           {block.text.split("\n\n").map((para, i) => (
             <p key={i}>{para}</p>
           ))}
@@ -94,32 +71,24 @@ export default function IssueBlock({ block }) {
       );
     case "card":
       return (
-        <div className="my-3 rounded-card bg-accent-soft p-5">
-          <h4 className="font-semibold text-ink text-base mb-1">{block.title}</h4>
-          <p className="text-sm text-ink-soft m-0">{block.body}</p>
+        <div className="issue__card">
+          <h3>{block.title}</h3>
+          <p>{block.body}</p>
         </div>
       );
     case "intro":
-      return (
-        <p className="my-3 text-sm text-ink-soft leading-relaxed italic">{block.text}</p>
-      );
+      return <p className="issue__intro">{block.text}</p>;
     case "teacher":
       return (
-        <div className="py-4 border-t border-rule first:border-t-0">
-          <h4 className="font-display italic font-semibold text-2xl text-accent mb-2">
-            {block.name}
-          </h4>
-          <p className="text-sm text-ink leading-relaxed m-0">{block.body}</p>
+        <div className="issue__teacher">
+          <h3>{block.name}</h3>
+          <p>{block.body}</p>
         </div>
       );
     case "callout":
-      return (
-        <div className="my-8 rounded-card bg-accent-soft p-6 text-center text-ink font-medium">
-          {block.text}
-        </div>
-      );
+      return <p className="issue__callout">{block.text}</p>;
     case "divider":
-      return <hr className="my-10 border-0 border-t border-rule" />;
+      return <hr />;
     default:
       return null;
   }

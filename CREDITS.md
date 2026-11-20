@@ -34,3 +34,12 @@ Allowed sources: Unsplash, Pexels, Lucide (icons), unDraw, Open Peeps, SVGRepo (
 1. No asset ships without a row in this file.
 2. Inspiration references (Nexflow, FinTechX, Verseo, Galilee, DreamMotion, Cloud.Craft, manus.im) are viewed for direction only; their code/design is never copied wholesale, so they are not credited as sources.
 3. If a license requires attribution in the UI, add it to the footer credits line as well.
+
+## Added with the 2026 redesign
+
+- **Anek Latin** and **Anek Devanagari** by Ek Type, SIL Open Font License 1.1, served through `next/font/google`.
+- **Bhagavad Gita verses** in `data/shlokas.js`: the Sanskrit text was checked verse by verse against the open dataset at vedicscriptures.github.io. The plain-English lines and prompts were written for this site.
+- **Photographs** in `public/photos/` and `public/events/` are the club's own: the Yoga Day 2026 set from the camera originals in `assets-inbox/JM_IYD_selected`, the rest from the club's Instagram export of 15 November 2026.
+- **Logo**: `public/brand/lotus.svg`, `logo-ink.svg` and `logo-paper.svg` are vector traces of the club's original logo (`assets-inbox/logo-black-text-original.png`), made so it sits on any colour without a background.
+- **Design method**: Hallmark v2.0.0 (custom direction). The stamp at the top of `app/globals.css` records the decisions.
+

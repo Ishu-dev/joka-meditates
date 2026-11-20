@@ -37,29 +37,21 @@ export default function CountdownTimer({ seconds = 60, label = "Timer" }) {
   }
 
   return (
-    <div className="my-10 rounded-card border border-rule bg-accent-soft/40 p-6 text-center">
-      <p className="text-sm uppercase tracking-widest text-ink-soft">{label}</p>
-      <p
-        className="font-display my-3 text-5xl tabular-nums"
-        role="timer"
-        aria-live="off"
-      >
+    <div className="widget">
+      <p className="title">{label}</p>
+      <p className="widget__clock" role="timer" aria-live="off">
         {format(remaining)}
       </p>
-      <div className="flex items-center justify-center gap-3">
+      <div className="actions widget__actions">
         <button
           type="button"
           onClick={() => setRunning(!running)}
           disabled={remaining === 0}
-          className="rounded-full bg-deep px-5 py-2 text-sm font-medium text-paper disabled:opacity-40 hover:opacity-90 transition-opacity"
+          className="btn btn--paper"
         >
           {running ? "Pause" : "Start"}
         </button>
-        <button
-          type="button"
-          onClick={reset}
-          className="rounded-full border border-deep px-5 py-2 text-sm font-medium text-deep hover:bg-deep-soft transition-colors"
-        >
+        <button type="button" onClick={reset} className="btn btn--quiet">
           Reset
         </button>
       </div>

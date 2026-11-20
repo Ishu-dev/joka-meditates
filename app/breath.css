@@ -1,0 +1,17 @@
+/* The breathing bloom: components/BreathBloom.js draws a flower around the sun while a practice runs. */
+
+.bloom { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+/* out of the page until a breath runs, so it costs nothing and measures as nothing */
+.bloom:not(.is-on) { display: none; }
+
+/* in the practice room the line about when to use a practice steps aside while it runs, as the
+   headline does in the hero, so the flower has the room */
+.room__use { transition: opacity var(--dur-long) var(--ease-out); }
+.room[data-breathing="true"] .room__use { opacity: 0; visibility: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  html:not(.motion-ok) .bloom { display: none; }
+  html:not(.motion-ok) .room__use { transition: none; }
+}
+html.motion-off .bloom { display: none; }
+html.motion-off .room__use { transition: none; }

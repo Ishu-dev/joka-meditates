@@ -1,34 +1,66 @@
 import Link from "next/link";
+import SiteSwitches from "./SiteSwitches";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-rule mt-16">
-      <div className="mx-auto max-w-3xl px-4 py-8 text-sm text-ink-soft">
-        <p className="font-display text-lg text-ink">Joka Meditates</p>
-        <p className="mt-1">
-          Heartfulness meditation Student Interest Group, IIM Calcutta
+    <footer className="site-footer cut-c">
+      <div className="wrap site-footer__grid">
+        <p className="site-footer__motto">
+          Joka has the trees. We have the stillness.
         </p>
-        <p className="mt-2">
-          <a href="mailto:joka-meditates@email.iimcal.ac.in">
-            joka-meditates@email.iimcal.ac.in
-          </a>
-        </p>
-        <p className="mt-1">
-          <a
-            href="https://www.instagram.com/joka_meditates/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Instagram · @joka_meditates
-          </a>
-        </p>
-        <p className="mt-4 text-xs">
-          © {new Date().getFullYear()} Joka Meditates.{" "}
-          <Link href="/issues" className="hover:text-accent">
-            Read the issues
-          </Link>
-          .
-        </p>
+        <div className="site-footer__lists">
+          <ul aria-label="The club">
+            <li>
+              <Link href="/about">About</Link>
+            </li>
+            <li>
+              <Link href="/team">Team</Link>
+            </li>
+            <li>
+              <Link href="/issues">Read the issues</Link>
+            </li>
+            <li>
+              <Link href="/beyond">Beyond campus</Link>
+            </li>
+          </ul>
+          <ul aria-label="Elsewhere">
+            <li>
+              <a
+                href="https://www.instagram.com/joka_meditates/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://chat.whatsapp.com/GlJ7rURYrjT88BT8h5IwYR"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp circle
+              </a>
+            </li>
+            <li>
+              <a href="mailto:joka-meditates@email.iimcal.ac.in">Email the team</a>
+            </li>
+          </ul>
+        </div>
+        <div className="site-footer__foot">
+          <img
+            src="/brand/logo-ink.svg"
+            alt="Joka Meditates"
+            width="132"
+            height="130"
+            loading="lazy"
+          />
+          <p className="note" data-credits>
+            A student interest group of IIM Calcutta, sitting since 2024. Write to
+            joka-meditates@email.iimcal.ac.in. Photographs by Joka Meditates.
+          </p>
+          <SiteSwitches />
+        </div>
       </div>
     </footer>
   );

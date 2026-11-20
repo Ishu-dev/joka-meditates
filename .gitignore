@@ -8,3 +8,5 @@ out/
 assets-inbox/
 *.log
 .vercel
+# the design checker's screenshots and its log
+.hallmark/

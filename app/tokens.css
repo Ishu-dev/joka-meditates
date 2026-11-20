@@ -1,0 +1,74 @@
+:root {
+  /* spacing */
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+
+  /* type scale: a poster size for the first screen, then four working sizes */
+  --text-xs: 0.8125rem; --text-sm: 0.9375rem; --text-md: 1.0625rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-poster: clamp(3.25rem, 12.2vw, 12rem);
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2.25rem, 4.4vw, 4.5rem);
+  --text-statement: clamp(1.625rem, 2.9vw, 2.875rem);
+  --text-title: clamp(1.25rem, 1.6vw, 1.75rem);
+  --text-lead: clamp(1.125rem, 1.4vw, 1.375rem);
+  --text-deva: clamp(1.625rem, 3.1vw, 3rem);
+
+  /* motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+
+  /* canvas */
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --nav-height: 72px;
+  --band-pad: clamp(var(--space-2xl), 9vw, var(--space-4xl));
+  --sun-size: clamp(260px, 41vw, 620px); --pad-size: clamp(170px, 21vw, 310px);
+  /* a smaller pad for Chanchal on the guide pages, and how far he rises above the point he sits on (80 body units at his scale) */
+  --seat-size: clamp(9.5rem, 15vw, 14rem); --seat-rise: 136px;
+  --z-base: 1; --z-chanchal: 1; --z-content: 2; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+
+  /* colour: the logo's own blush, its green-black ink and its lotus pink, plus the sun and the pond at Joka */
+  --color-paper: oklch(96.5% 0.016 15); --color-paper-2: oklch(93.5% 0.024 15); --color-paper-3: oklch(90% 0.034 15);
+  --color-ink: oklch(23% 0.04 140); --color-ink-2: oklch(38% 0.035 140); --color-muted: oklch(47% 0.03 140);
+  --color-rule: oklch(84% 0.03 15);
+  --color-accent: oklch(54% 0.215 2); --color-accent-2: oklch(46% 0.19 2); --color-accent-ink: oklch(98.5% 0.006 15); --color-focus: oklch(54% 0.215 2);
+  --color-lotus: oklch(62% 0.23 0);
+  --color-sun: oklch(85% 0.155 84); --color-sun-2: oklch(79% 0.16 76);
+  --color-pond: oklch(40% 0.085 165); --color-pond-2: oklch(33% 0.065 165);
+  --color-chanchal: oklch(84% 0.05 15);
+  --color-pond-soft: oklch(88% 0.04 160); --color-pond-line: oklch(52% 0.07 165);
+  --color-ink-soft: oklch(84% 0.025 140); --color-ink-line: oklch(38% 0.035 140);
+  --color-accent-soft: oklch(93% 0.035 5); --color-accent-line: oklch(66% 0.16 2);
+  --color-sun-line: oklch(72% 0.14 80);
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  /* the seven centres, root to crown, each bright enough to read on the ink field */
+  --color-chakra-1: oklch(66% 0.19 27); --color-chakra-2: oklch(75% 0.16 55); --color-chakra-3: oklch(88% 0.16 98); --color-chakra-4: oklch(76% 0.17 148);
+  --color-chakra-5: oklch(74% 0.125 232); --color-chakra-6: oklch(66% 0.16 280); --color-chakra-7: oklch(76% 0.14 318);
+
+  /* type: one superfamily, made in India, Latin and Devanagari drawn together */
+  --font-display: var(--font-anek), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-anek), ui-sans-serif, system-ui, sans-serif;
+  --font-deva: var(--font-anek-deva), var(--font-anek), ui-sans-serif, sans-serif;
+  --font-outlier: var(--font-body);
+  --tracking-display: -0.012em;
+
+  /* shape: cut paper. Circles are never quite round, controls are pebbles */
+  --radius-card: 20px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
+  --blob-a: 47% 53% 51% 49% / 52% 47% 53% 48%;
+  --blob-b: 54% 46% 48% 52% / 46% 53% 47% 54%;
+  --blob-c: 50% 50% 46% 54% / 55% 49% 51% 45%;
+  --petal: 4% 62% 6% 62% / 4% 58% 6% 58%;
+
+  /* names the older pages and Tailwind utilities still read */
+  --paper: var(--color-paper); --ink: var(--color-ink); --ink-soft: var(--color-ink-2);
+  --accent: var(--color-accent); --accent-soft: var(--color-paper-2);
+  --deep: var(--color-pond); --deep-soft: var(--color-paper-2);
+  --rule: var(--color-rule); --link: var(--color-accent); --radius: 14px;
+}
+
+/* The scaffold's own breakpoints live in a cascade layer, which these unlayered
+   tokens outrank, so the smaller canvases are restated here. */
+@media (max-width: 60rem) {
+  :root { --gutter: 24px; --gap-columns: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; --nav-height: 64px; }
+}
+@media (max-width: 40rem) {
+  :root { --gutter: 16px; --gap-columns: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --text-poster: clamp(3rem, 15.5vw, 4.5rem); --seat-rise: 92px; }
+}

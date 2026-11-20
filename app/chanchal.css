@@ -1,0 +1,25 @@
+/* Chanchal's own pieces: the box he talks in, and the footer's switches for sound and motion.
+   His canvas is styled in globals.css. */
+
+/* A small paper box by his head that types out what he says. It is fixed to the window and placed by
+   components/Chanchal.js, which moves its bottom corner to his head. */
+.chanchal-say { position: fixed; left: 0; top: 0; z-index: var(--z-raised); max-width: min(17rem, 72vw); padding: var(--space-xs) var(--space-sm); border: 2px solid var(--color-ink); border-radius: var(--space-sm); background: var(--color-paper); color: var(--color-ink); font: 600 var(--text-sm) / 1.35 var(--font-body); pointer-events: none; opacity: 0; transition: opacity var(--dur-short) var(--ease-out); }
+.chanchal-say.is-on { opacity: 1; }
+/* the tail, pointing down at him */
+.chanchal-say::after { content: ""; position: absolute; left: var(--space-md); bottom: calc(-1 * var(--space-xs)); width: var(--space-sm); height: var(--space-sm); border-right: 2px solid var(--color-ink); border-bottom: 2px solid var(--color-ink); background: var(--color-paper); transform: rotate(45deg); }
+.chanchal-say[data-side="left"]::after { left: auto; right: var(--space-md); }
+.chanchal-say__caret { display: inline-block; width: 0.45em; height: 1em; margin-left: var(--space-3xs); vertical-align: -0.14em; background: var(--color-accent); animation: say-caret 0.5s steps(2, jump-none) infinite; }
+@keyframes say-caret { from { opacity: 1; } to { opacity: 0; } }
+.chanchal-say[data-done] .chanchal-say__caret { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html:not(.motion-ok) .chanchal-say { transition: none; }
+  html:not(.motion-ok) .chanchal-say__caret { animation: none; }
+}
+html.motion-off .chanchal-say { transition: none; }
+html.motion-off .chanchal-say__caret { animation: none; }
+
+/* ---------- the footer's switches: sound and motion for the whole site ---------- */
+
+.switches { display: flex; flex-wrap: wrap; gap: var(--space-2xs) var(--space-lg); }
+.site-footer .go:hover { color: var(--color-ink); text-decoration-thickness: 3px; }

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Reveal from "@/components/Reveal";
 import { getIssues } from "@/lib/issues";
+import Critter from "@/components/Critter";
 
 export const metadata = {
   title: "Issues",
@@ -10,49 +10,46 @@ export const metadata = {
 
 function formatDate(iso) {
   if (!iso) return "";
-  return new Date(iso).toLocaleDateString("en-IN", {
+  return new Date(iso).toLocaleDateString("en-GB", {
     day: "numeric",
     month: "long",
     year: "numeric",
+    timeZone: "Asia/Kolkata",
   });
 }
 
 export default async function IssuesPage() {
   const issues = await getIssues();
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
-      <header className="text-center">
-        <h1 className="font-display text-4xl text-ink">The Issues</h1>
-        <p className="mx-auto mt-3 max-w-lg text-ink-soft">
-          Twice a week, one practice, one verse, one small experiment in
-          stillness. Start anywhere.
-        </p>
-      </header>
-      <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-        {issues.map((issue, i) => (
-          <Reveal as="li" key={issue.slug} delay={i * 60}>
-            <Link
-              href={`/issues/${issue.slug}`}
-              className="group flex h-full flex-col rounded-card border border-rule bg-paper p-6 transition-colors hover:border-accent"
-            >
-              <span className="text-xs uppercase tracking-widest text-deep">
-                {issue.number ? `Issue ${issue.number}` : "Issue"}
-              </span>
-              <span className="font-display mt-2 text-2xl leading-snug text-ink group-hover:text-accent transition-colors">
-                {issue.title}
-              </span>
-              {issue.subtitle && (
-                <span className="mt-2 text-sm leading-relaxed text-ink-soft">
-                  {issue.subtitle}
-                </span>
-              )}
-              <span className="mt-auto pt-4 text-xs text-ink-soft">
-                {formatDate(issue.published_at)}
-              </span>
-            </Link>
-          </Reveal>
-        ))}
-      </ul>
-    </div>
+    <>
+      <section className="band page-top">
+        <div className="wrap stack">
+          <h1 className="head head--wide">The Issues</h1>
+          <p className="lead">
+            One practice, one verse, one small experiment in stillness each time. Start anywhere.
+          </p>
+        </div>
+      </section>
+      <section className="band field-accent cut-b" aria-label="All issues">
+        <div className="critter-edge critter-edge--right critter-edge--low">
+          <Critter name="snail" />
+        </div>
+        <div className="wrap">
+          <ul className="index">
+            {issues.map((issue) => (
+              <li key={issue.slug}>
+                <Link href={`/issues/${issue.slug}`}>
+                  <span className="note">
+                    {issue.number ? `Issue ${issue.number}` : "Issue"}, {formatDate(issue.published_at)}
+                  </span>
+                  <span className="index__name">{issue.title}</span>
+                  {issue.subtitle && <span className="note">{issue.subtitle}</span>}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </>
   );
 }

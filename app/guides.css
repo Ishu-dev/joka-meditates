@@ -1,0 +1,153 @@
+/* The three guides under the practice room: the chakra walk, the 14-pose sequence and the mandala.
+   This file is imported ahead of the rules in globals.css. Anything here that restates a class from
+   that file carries one more class, so it wins whatever the order. */
+
+/* ---------- a seat for Chanchal at the foot of a band ---------- */
+
+.guide-stage { position: absolute; inset: 0; overflow: clip; pointer-events: none; }
+.guide-stage__inner { position: relative; height: 100%; max-width: var(--container); margin-inline: auto; }
+.guide-seat { position: absolute; right: calc(var(--gutter) + 6vw); bottom: var(--space-xl); width: var(--seat-size); aspect-ratio: 5 / 2; border-radius: var(--blob-b); background: conic-gradient(from 96deg at 50% 50%, var(--seat, var(--color-pond)) 0 318deg, transparent 318deg 360deg); }
+.field-ink .guide-seat { --seat: var(--color-pond-line); }
+.field-pond .guide-seat { --seat: var(--color-pond-2); }
+/* The room kept free at the end of a column: from the foot of the pad up to the top of Chanchal's
+   head when he sits on it, plus a little air, less the padding the band already gives. */
+.guide-seat-room { height: calc(var(--space-xl) + var(--seat-size) * 0.232 + var(--seat-rise) + var(--space-lg) - var(--band-pad)); }
+/* The practice room on a wide screen: the pad sits in the gap between the list of practices and the
+   sun, level with the foot of the sun. The sum finds the middle of that gap on the twelve columns:
+   the list ends after column 5, the 440px sun is centred in columns 7 to 12. */
+@media (min-width: 80rem) {
+  .room-seat .guide-seat { --w: calc(100% - 2 * var(--gutter)); right: auto; bottom: auto; left: calc(var(--gutter) + var(--w) * 0.5833 - var(--gap-columns) * 0.1667 - 110px - var(--seat-size) / 2); top: calc(var(--space-3xl) + 440px - var(--seat-size) * 0.4); }
+  .room-seat-room { display: none; }
+}
+.field-sun .go:hover { color: var(--color-ink); text-decoration-thickness: 3px; }
+
+/* ---------- how a guide ends ---------- */
+
+.guide-end .pads { margin-bottom: var(--space-2xl); }
+.guide-end__say { margin-bottom: var(--space-xl); }
+/* three across holds down to a phone, where they stack */
+.guide-end .pads--wide { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* ---------- the seven centres ---------- */
+
+.chakra { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); align-items: start; }
+.chakra__figure { grid-column: 1 / span 5; position: sticky; top: calc(var(--nav-height) + var(--space-md)); display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: var(--space-md); align-items: center; }
+/* --h is the height of the figure's box. The top eighth is left empty so the crown's symbol has room to open. */
+.chakra__diagram { --h: min(62svh, 36rem); --room: calc(var(--h) * 0.125); --d: calc(var(--h) * 0.37); grid-column: 2; grid-row: 1; position: relative; width: 100%; height: var(--h); padding-top: var(--room); }
+.chakra__diagram canvas { position: relative; display: block; width: 100%; height: 100%; }
+.chakra__bloom { position: absolute; left: var(--x); top: calc(var(--room) + var(--y)); width: var(--d); aspect-ratio: 1; margin: calc(var(--d) / -2) 0 0 calc(var(--d) / -2); background: var(--c); -webkit-mask: var(--glyph) center / contain no-repeat; mask: var(--glyph) center / contain no-repeat; pointer-events: none; }
+@keyframes chakra-open { from { opacity: 0; transform: scale(0.7) rotate(-10deg); } to { opacity: 1; transform: none; } }
+.js .chakra__bloom { animation: chakra-open var(--dur-long) var(--ease-out) both; }
+/* seven beads set out like a spine: the root at the foot, the crown on top */
+.chakra__nav { grid-column: 1; grid-row: 1; display: flex; flex-direction: column-reverse; margin: 0; padding: 0; list-style: none; }
+.chakra__nav button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: var(--radius-pill); background: transparent; cursor: pointer; }
+.chakra__nav span { display: block; width: 14px; aspect-ratio: 1; border-radius: 50%; background: var(--c); transition: transform var(--dur-short) var(--ease-out); }
+.chakra__nav button:hover span { transform: scale(1.35); }
+.chakra__nav button:active span { transform: scale(1.15); }
+.chakra__nav button[aria-current="true"] span { transform: scale(1.9); }
+.chakra__list { grid-column: 7 / span 6; display: grid; row-gap: var(--space-3xl); margin: 0; padding: 0; list-style: none; }
+.chakra__item { --mark: clamp(5rem, 9vw, 8rem); display: grid; grid-template-columns: var(--mark) minmax(0, 1fr); column-gap: var(--gap-columns); row-gap: var(--space-md); align-items: start; }
+.chakra__mark { display: block; width: var(--mark); aspect-ratio: 1; background: var(--c); -webkit-mask: var(--glyph) center / contain no-repeat; mask: var(--glyph) center / contain no-repeat; }
+.chakra__text { display: grid; row-gap: var(--space-lg); min-width: 0; }
+.chakra__en { color: var(--c); }
+.chakra__text > p:not([class]) { color: var(--soft); }
+
+/* ---------- the 14 poses ---------- */
+
+.asana__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); align-items: start; }
+.asana__stage { grid-column: 1 / span 6; position: relative; justify-self: center; width: min(100%, 36rem); aspect-ratio: 1; margin: 0; }
+.asana__disc { position: absolute; inset: 0; border-radius: var(--blob-a); background: var(--color-paper); transform: scale(var(--breath, 1)); transition: transform var(--breath-time, 0.6s) var(--ease-in-out); }
+.asana__art { position: absolute; inset: 11%; }
+.asana__art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+@keyframes asana-in { from { opacity: 0; transform: translateY(var(--space-md)); } to { opacity: 1; transform: none; } }
+.js .asana__art img { animation: asana-in var(--dur-long) var(--ease-out) both; }
+.asana__body { grid-column: 8 / span 5; display: grid; row-gap: var(--space-lg); min-width: 0; }
+/* the note and the breath count trade places here, so the height is held */
+.asana__say { display: grid; align-content: start; min-height: 5.5rem; }
+.asana__breath { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: var(--space-lg); }
+.asana__count { min-width: 1.1ch; font: 800 var(--text-display) / 0.9 var(--font-display); font-stretch: 82%; font-variant-numeric: tabular-nums; text-align: center; }
+.asana__word { font: 800 var(--text-title) / 1.15 var(--font-display); font-stretch: 92%; }
+/* a line kept for the status, pulled in so the empty line does not read as a gap */
+.asana__status { min-height: 1.55em; margin-block: calc(-1 * var(--space-sm)); font-weight: 600; }
+.asana__pager { display: flex; align-items: center; gap: var(--space-md); padding-top: var(--space-lg); border-top: 1px solid var(--line); }
+.asana__at { min-width: 7ch; font-weight: 600; font-variant-numeric: tabular-nums; text-align: center; }
+.check { display: inline-flex; align-items: center; gap: var(--space-sm); min-height: 44px; font-size: var(--text-sm); cursor: pointer; }
+.check input { flex: none; width: 1.375rem; height: 1.375rem; margin: 0; accent-color: var(--color-accent); cursor: pointer; }
+
+/* all fourteen: each drawing on its own pebble, numbered in order */
+.asana-index { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-xl) var(--gap-columns); margin: 0; padding: 0; list-style: none; counter-reset: pose; }
+.asana-index li { counter-increment: pose; min-width: 0; }
+.asana-index a { position: relative; display: grid; align-content: start; row-gap: var(--space-sm); color: inherit; text-decoration: none; }
+.asana-index a::before { content: counter(pose); position: absolute; left: 0; top: 0; z-index: var(--z-base); display: grid; place-items: center; width: 2rem; aspect-ratio: 1; border-radius: var(--blob-b); background: var(--color-sun); font: 800 var(--text-sm) / 1 var(--font-display); font-variant-numeric: tabular-nums; }
+.asana-index img { width: 100%; height: auto; aspect-ratio: 1; padding: 14%; object-fit: contain; border-radius: var(--blob-a); background: var(--color-paper-2); transition: background-color var(--dur-short) var(--ease-out); }
+.asana-index li:nth-child(3n + 2) img { border-radius: var(--blob-b); }
+.asana-index li:nth-child(3n) img { border-radius: var(--blob-c); }
+.asana-index a:hover img { background: var(--color-paper-3); }
+.asana-index a:active img { background: var(--color-rule); }
+.asana-index a[aria-current="true"] img { background: var(--color-sun); }
+.asana-index a[aria-current="true"]::before { background: var(--color-ink); color: var(--color-paper); }
+.asana-index a > span { display: block; min-width: 0; }
+.asana-index__name { display: block; font: 800 var(--text-md) / 1.15 var(--font-display); font-stretch: 92%; overflow-wrap: anywhere; }
+.asana-index__en { display: block; font-size: var(--text-sm); }
+.asana-index .note { display: block; margin-top: var(--space-2xs); }
+
+/* ---------- the mandala ---------- */
+
+.mandala { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-xl); align-items: center; }
+.mandala__stage { grid-column: 1 / span 7; justify-self: center; width: min(100%, 76svh); aspect-ratio: 1; }
+.mandala__stage canvas { display: block; width: 100%; height: 100%; }
+.mandala__controls { grid-column: 8 / span 5; display: grid; row-gap: var(--space-xl); min-width: 0; }
+.mandala .mandala__drones { grid-column: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-xs); }
+.mandala .mandala__drones label { padding-inline: var(--space-md); }
+.mandala__error { font-weight: 600; color: var(--color-sun); }
+.lead.mandala__wait { display: grid; place-content: center; min-height: min(70svh, 40rem); max-width: none; text-align: center; }
+.range { display: grid; row-gap: var(--space-2xs); font-weight: 600; }
+.range input { -webkit-appearance: none; appearance: none; width: 100%; height: 44px; margin: 0; background: transparent; cursor: pointer; }
+.range input::-webkit-slider-runnable-track { height: 4px; border-radius: var(--space-3xs); background: color-mix(in oklab, currentColor 40%, transparent); }
+.range input::-moz-range-track { height: 4px; border-radius: var(--space-3xs); background: color-mix(in oklab, currentColor 40%, transparent); }
+.range input::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 28px; height: 28px; margin-top: calc(-1 * var(--space-sm)); border: 0; border-radius: var(--blob-a); background: var(--color-sun); }
+.range input::-moz-range-thumb { width: 28px; height: 28px; border: 0; border-radius: var(--blob-a); background: var(--color-sun); }
+
+/* ---------- smaller screens ---------- */
+
+@media (max-width: 80rem) {
+  .asana-index { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+@media (max-width: 60rem) {
+  .guide-seat { right: var(--gutter); }
+  .guide-end .pads--wide a { padding-inline: var(--space-lg); }
+  /* the figure's box and the beads become rows of their own, and the beads stay in view as a strip */
+  .chakra__figure { display: contents; }
+  .chakra__diagram, .chakra__nav, .chakra__list { grid-column: 1 / -1; grid-row: auto; }
+  .chakra__diagram { --h: min(56svh, 26rem); }
+  .chakra__nav { position: sticky; top: var(--nav-height); z-index: var(--z-raised); flex-direction: row; justify-content: space-between; margin-inline: calc(-1 * var(--gutter)); padding: var(--space-2xs) var(--gutter); background: var(--color-ink); border-bottom: 1px solid var(--line); }
+  .chakra__item { scroll-margin-top: var(--space-2xl); }
+  .asana__stage, .asana__body { grid-column: 1 / -1; }
+  .asana__stage { width: min(100%, 26rem); }
+  .asana__say { min-height: 3.5rem; }
+  .asana-index { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .mandala__stage, .mandala__controls { grid-column: 1 / -1; }
+}
+@media (max-width: 40rem) {
+  .chakra__item { --mark: 5rem; grid-template-columns: minmax(0, 1fr); }
+  /* the fourteen become a list: the drawing beside its name */
+  .asana-index { grid-template-columns: minmax(0, 1fr); row-gap: 0; }
+  .asana-index a { grid-template-columns: 5rem minmax(0, 1fr); column-gap: var(--space-md); align-items: center; padding-block: var(--space-sm); border-top: 1px solid var(--line); }
+  .asana-index li:last-child a { border-bottom: 1px solid var(--line); }
+  .asana-index a::before { top: var(--space-xs); width: 1.625rem; }
+  .asana-index img { padding: 12%; }
+  .guide-end .pads { grid-template-columns: minmax(0, 1fr); row-gap: var(--space-md); margin-bottom: var(--space-lg); }
+  .guide-end .pads li:nth-child(even) a { translate: none; }
+}
+
+/* ---------- stillness ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  /* A visitor who pressed "Let Chanchal move" has html.motion-ok and keeps the motion. */
+  html:not(.motion-ok) .asana__disc { transition: none; transform: none; }
+  html:not(.motion-ok) :is(.chakra__bloom, .asana__art img) { animation: none; }
+  html:not(.motion-ok) :is(.chakra__nav span, .asana-index img) { transition: none; }
+}
+html.motion-off .asana__disc { transition: none; transform: none; }
+html.motion-off :is(.chakra__bloom, .asana__art img) { animation: none; }
+html.motion-off :is(.chakra__nav span, .asana-index img) { transition: none; }

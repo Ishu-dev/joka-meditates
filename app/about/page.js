@@ -4,34 +4,39 @@ export const metadata = { title: "About" };
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-2xl px-4 py-12">
-      <h1 className="font-display text-4xl text-ink">About</h1>
-      <div className="mt-6 space-y-4 leading-relaxed text-ink">
-        <p>
-          Joka Meditates is the student-run Heartfulness meditation Student
-          Interest Group of IIM Calcutta. We sit together twice a week, run
-          guided practices, and send a small newsletter twice a week: one
-          practice, one verse, one experiment in stillness.
-        </p>
-        <p>
-          When our Instagram was permanently disabled, this site and the issue
-          became the only two doors into the club. Both stay open.
-        </p>
-      </div>
-      <div className="mt-8 flex gap-3">
-        <Link
-          href="/team"
-          className="rounded-full border border-deep px-5 py-2 text-sm font-medium text-deep hover:bg-deep-soft transition-colors"
-        >
-          Meet the team
-        </Link>
-        <Link
-          href="/issues"
-          className="rounded-full bg-accent px-5 py-2 text-sm font-medium text-paper hover:opacity-90 transition-opacity"
-        >
-          Read the issues
-        </Link>
-      </div>
-    </div>
+    <>
+      <section className="band page-top">
+        <div className="wrap split">
+          <div className="about__text stack">
+            <h1 className="head head--wide">About Joka Meditates.</h1>
+            <p className="lead">
+              Joka Meditates is the student-run meditation Student Interest Group of IIM Calcutta, started in 2024.
+              We sit together on campus with Heartfulness trainers and guests, run guided practices on this site, and
+              send a newsletter: one practice, one verse, one experiment in stillness.
+            </p>
+            <p className="lead">
+              The figure wandering these pages is Chanchal. In the Gita, Arjuna calls the mind chanchal, restless and
+              as hard to hold as the wind (6.34). Krishna agrees, and says it can be held with practice and letting go (6.35). The
+              whole site is built on that exchange: breathe for two minutes and he sits.
+            </p>
+            <div className="actions">
+              <Link className="btn btn--quiet" href="/team">
+                Meet the team
+              </Link>
+              <Link className="go" href="/issues">
+                Read the issues
+              </Link>
+            </div>
+          </div>
+          <img
+            className="lockup about__logo"
+            src="/brand/logo-ink.svg"
+            alt="Joka Meditates"
+            width="320"
+            height="314"
+          />
+        </div>
+      </section>
+    </>
   );
 }

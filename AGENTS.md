@@ -6,6 +6,16 @@ This file is read automatically by OpenCode at the start of every session in thi
 
 **The full product spec lives in `docs/PRD.md`** (place the PRD file there). This file is the working-style and technical-pattern companion to that spec, read both, but treat the PRD as the source of truth for *what* to build and this file as the source of truth for *how*.
 
+## Redesign in progress (read this first, added 18 November 2026)
+
+The owner retired the newsletter-derived design system on 18 November 2026 and asked for a new design. Work is on branch `redesign-2026`. **`docs/REDESIGN_2026.md` is now the source of truth for the look, the pages, where content lives and what is still open.** Where this file and that one disagree, that one wins. In short:
+
+- The sections below headed "Design system: port this exactly", "Theme toggle" and "Logo: two files" are superseded. Tokens are in `app/tokens.css`, the stylesheet is `app/globals.css`, the type is Anek Latin and Anek Devanagari, and the logo is the traced SVG in `public/brand/`.
+- "No public user accounts" in the PRD is reversed: Google sign-in, streak sync, a leaderboard and a wall of thoughts are planned as phase 2.
+- Material that was circulated to IIMC batches only (prep files from other clubs, consultant names and phone numbers) never goes into a data file or a client bundle. It waits for the IIMC sign-in.
+- The character on the site is Chanchal, the restless mind of Gita 6.34. Read the layering note in the redesign doc before adding a `transform` or `z-index` near `<main>`.
+- Still true from below: performance limits, sound by synthesis, no em dash anywhere, facts only from a real source.
+
 ## What this project is
 
 Joka Meditates is IIM Calcutta's student-run Heartfulness meditation Student Interest Group. Instagram was permanently disabled, so this site and the twice-weekly newsletter ("the issue") are the club's only two channels. Four issues of the newsletter already exist as real, shipped, working HTML files, they are the design and interaction reference for this whole build, not a rough sketch to improve on.
@@ -36,7 +46,7 @@ Joka Meditates is IIM Calcutta's student-run Heartfulness meditation Student Int
 
 `<meta name="viewport" content="width=device-width, initial-scale=1.0">`, same as every existing newsletter issue file. Do not disable zoom entirely, just keep layout from breaking at extreme zoom levels.
 
-## Design system: port this exactly, do not redesign it
+## Design system: port this exactly, do not redesign it (SUPERSEDED 18 Nov 2026, see docs/REDESIGN_2026.md)
 
 The newsletter issues (four of them, already shipped) are the proven design system. Use their tokens and mechanisms directly rather than the earlier speculative "Divine Lotus" token set, which was never actually shipped anywhere.
 

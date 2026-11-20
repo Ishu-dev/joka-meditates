@@ -4,7 +4,7 @@
     "number": 1,
     "title": "You have ten minutes.",
     "subtitle": null,
-    "published_at": null,
+    "published_at": "2026-08-04T19:57:21Z",
     "content": [
       {
         "type": "heading",
@@ -101,7 +101,7 @@
     "number": 2,
     "title": "One Kilometer to Go",
     "subtitle": null,
-    "published_at": null,
+    "published_at": "2026-08-08T19:20:31Z",
     "content": [
       {
         "type": "heading",
@@ -271,7 +271,7 @@
     "number": 3,
     "title": "The Month of Restraint",
     "subtitle": "Saavan asks you to do less. That turns out to be the hard part.",
-    "published_at": null,
+    "published_at": "2026-08-12T15:30:00Z",
     "content": [
       {
         "type": "heading",
@@ -477,7 +477,7 @@
     "number": 4,
     "title": "The Third Quotient",
     "subtitle": "This campus trains you hard for one kind of intelligence. Nobody grades the other two.",
-    "published_at": null,
+    "published_at": "2026-08-20T18:51:25Z",
     "content": [
       {
         "type": "heading",
@@ -662,7 +662,7 @@
     "number": 5,
     "title": "Nobody's Got This Figured Out",
     "subtitle": "The people who look calmest right now are usually just better at hiding it.",
-    "published_at": "2026-09-01T00:00:00Z",
+    "published_at": "2026-08-28T05:21:06Z",
     "content": [
       {
         "type": "heading",

@@ -9,10 +9,11 @@ export async function generateStaticParams() {
 
 function formatDate(iso) {
   if (!iso) return "";
-  return new Date(iso).toLocaleDateString("en-IN", {
+  return new Date(iso).toLocaleDateString("en-GB", {
     day: "numeric",
     month: "long",
     year: "numeric",
+    timeZone: "Asia/Kolkata",
   });
 }
 
@@ -29,29 +30,31 @@ export default async function IssuePage({ params }) {
   const blocks = issue.content || [];
 
   return (
-    <article className="mx-auto max-w-2xl px-4 py-12">
-      <header className="text-center">
-        <p className="text-xs uppercase tracking-widest text-deep">
-          {issue.number ? `Issue ${issue.number}` : "Issue"}
-          {issue.published_at ? ` · ${formatDate(issue.published_at)}` : ""}
-        </p>
-        <h1 className="font-display mt-3 text-4xl leading-tight text-ink sm:text-5xl">
-          {issue.title}
-        </h1>
-        {issue.subtitle && (
-          <p className="mt-3 text-lg text-ink-soft">{issue.subtitle}</p>
-        )}
+    <article>
+      <header className="band page-top">
+        <div className="wrap stack-s">
+          <h1 className="head head--wide">{issue.title}</h1>
+          {issue.subtitle && <p className="lead">{issue.subtitle}</p>}
+          <p className="note">
+            {issue.number ? `Issue ${issue.number}` : "Issue"}
+            {issue.published_at ? `, ${formatDate(issue.published_at)}` : ""}
+          </p>
+        </div>
       </header>
-      <div className="mt-10">
-        {blocks.map((block, i) => (
-          <IssueBlock key={i} block={block} />
-        ))}
-      </div>
-      <footer className="mt-14 border-t border-rule pt-6 text-center text-sm text-ink-soft">
-        <Link href="/issues" className="text-link hover:text-accent">
-          ← All issues
-        </Link>
-      </footer>
+      <section className="band issue-band" aria-label="The issue">
+        <div className="wrap issue">
+          <div className="issue__body">
+            {blocks.map((block, i) => (
+              <IssueBlock key={i} block={block} />
+            ))}
+          </div>
+          <footer className="issue__foot">
+            <Link className="go" href="/issues">
+              All issues
+            </Link>
+          </footer>
+        </div>
+      </section>
     </article>
   );
 }

@@ -1,31 +1,30 @@
-import { Cormorant_Garamond, IBM_Plex_Sans } from "next/font/google";
+import { Anek_Latin, Anek_Devanagari } from "next/font/google";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import Mascot from "@/components/Mascot";
+import ChanchalGate from "@/components/ChanchalGate";
 import "./globals.css";
 
-const display = Cormorant_Garamond({
+const anek = Anek_Latin({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-display",
+  axes: ["wdth"],
+  variable: "--font-anek",
   display: "swap",
 });
 
-const body = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-body",
+const anekDeva = Anek_Devanagari({
+  subsets: ["devanagari"],
+  variable: "--font-anek-deva",
   display: "swap",
+  preload: false,
 });
 
 export const metadata = {
   title: {
-    default: "Joka Meditates",
-    template: "%s · Joka Meditates",
+    default: "Joka Meditates, IIM Calcutta",
+    template: "%s, Joka Meditates",
   },
   description:
-    "Joka Meditates is the student-run Heartfulness meditation Student Interest Group of IIM Calcutta. Practice guides, sessions, and the twice-weekly issue.",
+    "Joka Meditates is the student meditation circle of IIM Calcutta. Two-minute breathing practices, a thought and a Gita verse for the day, sessions on campus and the newsletter.",
 };
 
 export const viewport = {
@@ -33,25 +32,22 @@ export const viewport = {
   initialScale: 1.0,
 };
 
-const themeInit = `(function(){try{var t=localStorage.getItem('jm-theme');if(t){document.documentElement.dataset.theme=t;}}catch(e){}})();`;
+// Runs before paint: marks that scripts work, and restores the visitor's own
+// choice to let things move on a device that asks for reduced motion.
+const jsFlag = `(function(){var d=document.documentElement;d.classList.add('js');try{var m=localStorage.getItem('jm-motion');if(m==='on')d.classList.add('motion-ok');if(m==='off')d.classList.add('motion-off');}catch(e){}})();`;
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${display.variable} ${body.variable} antialiased`}>
-        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-paper focus:px-3 focus:py-2 focus:rounded-card"
-        >
+    <html lang="en" className={`${anek.variable} ${anekDeva.variable}`} suppressHydrationWarning>
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: jsFlag }} />
+        <a className="skip" href="#main">
           Skip to content
         </a>
         <NavBar />
-        <main id="main" className="min-h-[70vh]">
-          {children}
-        </main>
+        <main id="main">{children}</main>
         <Footer />
-        <Mascot />
+        <ChanchalGate />
       </body>
     </html>
   );

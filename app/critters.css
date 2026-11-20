@@ -1,0 +1,27 @@
+/* The pixel creatures: components/Critter.js paints them, data/critters.js holds the drawings.
+   --px is the size of one of their pixels on screen. */
+
+.critter { display: block; width: calc(var(--w) * var(--px, 4px)); height: calc(var(--h) * var(--px, 4px)); background-repeat: no-repeat; image-rendering: pixelated; pointer-events: none; }
+
+/* Standing on the top edge of a band. Put the wrapper first inside the band; the creature is lifted
+   its own height above that edge. A band cut "a" meets its edge on the right, a band cut "b" on the left. */
+.critter-edge { --inset: calc(max(0px, (100% - var(--container)) / 2) + var(--gutter) + var(--space-xl)); position: absolute; top: 0; transform: translateY(-100%); pointer-events: none; }
+.critter-edge--right { right: var(--inset); }
+.critter-edge--left { left: var(--inset); }
+/* the far end of a band cut "b": its top edge has dropped about 1.2vw by there */
+.critter-edge--low { top: 1.2vw; }
+/* a track for one that runs along the edge: the right half, clear of the words on the left */
+.critter-edge--run { left: 52%; right: var(--gutter); }
+
+/* The nine organisations: each has a creature standing on the rule above its name, so the rows sit
+   further apart and the list starts lower to leave them room. */
+.ngo.grid-3 { margin-top: var(--space-3xl); row-gap: calc(var(--space-2xl) + var(--space-lg)); }
+.ngo li { position: relative; }
+.ngo .critter { position: absolute; right: var(--space-xs); top: 0; transform: translateY(-100%); }
+
+@media (max-width: 40rem) {
+  .critter { --px: 3px; }
+  .critter-edge { --inset: var(--gutter); }
+  /* a page's opening strip is short: give the creature on the band below it somewhere to stand */
+  .page-top:has(+ .band > .critter-edge) { padding-bottom: var(--space-2xl); }
+}
