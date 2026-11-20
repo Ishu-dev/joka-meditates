@@ -33,7 +33,7 @@ export default function IssueBlock({ block }) {
     case "timer":
       return <CountdownTimer seconds={block.seconds || 60} label={block.label} />;
     case "playlist":
-      return <PlaylistLink title={block.title} meta={block.meta} href={block.href} />;
+      return <PlaylistLink title={block.title} meta={block.meta} href={block.href} action={block.action} />;
     case "list":
       return (
         <ol>

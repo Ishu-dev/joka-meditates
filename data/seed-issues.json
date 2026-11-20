@@ -847,5 +847,138 @@
         "text": "Pick one thing from this issue, not all six. The exam doesn't care which one you pick. Your term will go better either way."
       }
     ]
+  },
+  {
+    "slug": "issue-06",
+    "number": 6,
+    "title": "Staying Calm Through Placements",
+    "subtitle": "A few things that help you stay steady through the process. Take whatever is useful.",
+    "published_at": "2026-10-03T19:04:08Z",
+    "content": [
+      {
+        "type": "heading",
+        "text": "Staying Calm Through Placements"
+      },
+      {
+        "type": "lede",
+        "text": "You have already come through SIP preparation and a run of buddy calls. Some might not have received shortlists yet, but they will receive them in the coming days. Here are a few things that help you stay steady through the process. Take whatever is useful."
+      },
+      {
+        "type": "intro",
+        "text": "Written for the juniors going into final placements. Other batches can use it too."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "kicker",
+        "text": "Food"
+      },
+      {
+        "type": "heading",
+        "text": "Eat Light, Eat Sattvic"
+      },
+      {
+        "type": "text",
+        "text": "On interview days, keep food light all day. Fruits, coconut water and an electrolyte drink are enough for most people. Skip anything oily, heavy or spicy, and go easy on tamasic and rajasic food, which includes the third cup of coffee. Sattvic food keeps the mind calm, and a calm mind answers better."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "kicker",
+        "text": "Breath"
+      },
+      {
+        "type": "heading",
+        "text": "Breathe"
+      },
+      {
+        "type": "text",
+        "text": "Here are two guided breathwork sessions, 20 minutes each, to start with. They are only two of the many that exist, so search YouTube for one that fits what you need, whether that is calming down, sleeping better or settling your nerves before a big day. Do one in your room before the process starts, with headphones on and your phone on silent."
+      },
+      {
+        "type": "playlist",
+        "title": "Guided Intro to Deep Conscious Breath Work",
+        "meta": "Beginner, 20 minutes, YouTube",
+        "href": "https://www.youtube.com/watch?v=zFeTfG1vfGE",
+        "action": "Watch the video"
+      },
+      {
+        "type": "playlist",
+        "title": "Reset Your Nervous System in 20 Minutes",
+        "meta": "Guided breathwork, 20 minutes, YouTube",
+        "href": "https://youtu.be/v15B2FxaIvY",
+        "action": "Watch the video"
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "kicker",
+        "text": "Habits"
+      },
+      {
+        "type": "heading",
+        "text": "Small Habits That Help"
+      },
+      {
+        "type": "card",
+        "title": "Move a little every day",
+        "body": "Stretching or a short workout in your room is enough."
+      },
+      {
+        "type": "card",
+        "title": "Sleep properly the night before",
+        "body": "Tired people speak faster and think worse."
+      },
+      {
+        "type": "card",
+        "title": "Reset between rounds",
+        "body": "Two minutes of slow breaths, feet on the floor, phone away."
+      },
+      {
+        "type": "card",
+        "title": "Talk to someone",
+        "body": "Friends, seniors, professors. Asking early is easier than asking late."
+      },
+      {
+        "type": "card",
+        "title": "Use AI as a practice partner",
+        "body": "Mock interviews, case drills, random GD topics and feedback on your answers. Practise with it, but do not memorise scripts."
+      },
+      {
+        "type": "card",
+        "title": "Mute the batch groups",
+        "body": "For a few hours a day."
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "kicker",
+        "text": "Results"
+      },
+      {
+        "type": "heading",
+        "text": "When the Results Come"
+      },
+      {
+        "type": "text",
+        "text": "You will see friends get placed while you are still waiting, and you may get rejected yourself. If you take it personally, it only gets worse. Keep calm and do your best. You have a lot left to do in life, and this process does not decide it. Rejection is part of every career, including the ones that look smooth from the outside."
+      },
+      {
+        "type": "text",
+        "text": "If you get placed, help your friends who have not been placed yet. Share what worked, run a mock with them, and sit with them after a bad round."
+      },
+      {
+        "type": "text",
+        "text": "And bring the section war spirit. Back your section in every round, and back every IIMC student, whatever their section."
+      },
+      {
+        "type": "callout",
+        "text": "All the best, and take care."
+      }
+    ]
   }
 ]
