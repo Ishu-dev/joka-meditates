@@ -65,7 +65,7 @@ export default function Hero() {
                 ) : (
                   <a
                     className="btn btn--quiet"
-                    href="https://chat.whatsapp.com/GlJ7rURYrjT88BT8h5IwYR"
+                    href="https://chat.whatsapp.com/ItUqB80ZJyCL5QGnEewB2u?mode=gi_t"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

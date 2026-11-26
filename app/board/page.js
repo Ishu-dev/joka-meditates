@@ -129,7 +129,7 @@ export default async function BoardPage() {
               This wall is empty for now. It opens with sign-in: post under your name or anonymously, and someone
               from the team reads each note before it goes up.
             </p>
-            <a className="go" href="https://chat.whatsapp.com/GlJ7rURYrjT88BT8h5IwYR" {...out}>
+            <a className="go" href="https://chat.whatsapp.com/ItUqB80ZJyCL5QGnEewB2u?mode=gi_t" {...out}>
               Until then, tell us on WhatsApp
             </a>
           </div>

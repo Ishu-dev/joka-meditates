@@ -8,24 +8,20 @@
 
 export const polls = {
   "daaji-kolkata": {
-    title: "Daaji in Kolkata, 5 to 7 December",
+    title: "Daaji in Kolkata, 5 and 6 December",
     short: "Daaji in Kolkata",
     intro:
-      "Daaji, the guide of Heartfulness, is in Kolkata from Saturday 5 to Monday 7 December. Pick everything you might come to. Your name shows next to what you pick; your email does not.",
-    closes: "2026-12-07T20:00:00+05:30",
+      "Daaji, the guide of Heartfulness, is in Kolkata in the first week of December. We are going on Saturday evening and Sunday morning, and the club arranges transport from campus and back. Tick what you will come to. Your name shows next to what you pick; your email does not.",
+    closes: "2026-12-06T09:00:00+05:30",
     places: {
       centre: "Heartfulness Meditation Centre, 993 Madurdaha, Chowbaga Road, next to Heritage School, Kolkata 700107",
       auditorium: "Dhono Dhanyo Auditorium, Alipore",
     },
     sessions: [
-      { id: "sat-eve", label: "Sat 5 Dec, 6:00 PM", where: "Meditation at the centre, Madurdaha" },
+      { id: "sat-eve", label: "Sat 5 Dec, 6:00 PM", where: "Meditation at the Heartfulness centre, Madurdaha" },
       { id: "sun-aud", label: "Sun 6 Dec, 10:00 AM", where: "Kolkata Meditates with Daaji, Dhono Dhanyo Auditorium, Alipore (be seated by 9:45)" },
-      { id: "sun-eve", label: "Sun 6 Dec, 6:00 PM", where: "Meditation at the centre, Madurdaha" },
-      { id: "mon-am", label: "Mon 7 Dec, 9:00 AM", where: "Meditation at the centre, Madurdaha" },
-      { id: "mon-eve", label: "Mon 7 Dec, 6:00 PM", where: "Meditation at the centre, Madurdaha" },
     ],
     extras: [
-      { id: "cab", label: "I need a seat in a shared cab from campus", where: "So we know how many cabs to book" },
       { id: "sitting", label: "I would like a sitting before the weekend", where: "A Heartfulness trainer can take it online; we will fix a time" },
       { id: "stay", label: "I would stay at the ashram for the weekend", where: "If enough of us want to, we will ask the centre" },
       { id: "vayo", label: "I have registered as a Vayo SAATHI", where: "Heartfulness asked us for the count" },

@@ -36,7 +36,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="https://chat.whatsapp.com/GlJ7rURYrjT88BT8h5IwYR"
+                href="https://chat.whatsapp.com/ItUqB80ZJyCL5QGnEewB2u?mode=gi_t"
                 target="_blank"
                 rel="noopener noreferrer"
               >

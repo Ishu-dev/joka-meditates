@@ -241,7 +241,7 @@ Graphics and team headshots are already on disk (`graphics/`, `team/`) and inven
 1. Both logo files into `/public/brand`
 2. Guided meditation audio into `/public/audio`, if `/practice` gets a player
 3. Yoga Day and other event photos into `/public/events`
-4. ~~Real WhatsApp community link for `/join`~~ done: https://chat.whatsapp.com/GlJ7rURYrjT88BT8h5IwYR
+4. ~~Real WhatsApp community link for `/join`~~ done: https://chat.whatsapp.com/ItUqB80ZJyCL5QGnEewB2u?mode=gi_t
 5. `og-image.png` (1200x630) and `favicon.ico` in `/public/brand`, the og-image can be generated with `@vercel/og` from the logo and tokens
 6. Real session schedule (day, time, location) for `/join` and the footer
 

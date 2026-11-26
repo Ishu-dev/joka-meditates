@@ -36,7 +36,7 @@ export default function JoinPage() {
           </div>
           <div className="split__b stack">
             <div className="actions">
-              <a className="btn btn--paper" href="https://chat.whatsapp.com/GlJ7rURYrjT88BT8h5IwYR" {...out}>
+              <a className="btn btn--paper" href="https://chat.whatsapp.com/ItUqB80ZJyCL5QGnEewB2u?mode=gi_t" {...out}>
                 Join the WhatsApp community
               </a>
               <a className="btn btn--quiet" href="mailto:joka-meditates@email.iimcal.ac.in">
