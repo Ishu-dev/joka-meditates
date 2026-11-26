@@ -95,7 +95,10 @@ export async function GET(_request, { params }) {
     {
       width: W,
       height,
-      headers: { "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0" },
+      // Lower case on purpose: ImageResponse sets "cache-control" to a year,
+      // immutable, and spreads these headers over its own. A "Cache-Control"
+      // key would be added beside it instead of replacing it.
+      headers: { "cache-control": "no-store, no-cache, must-revalidate, max-age=0" },
     }
   );
 }
