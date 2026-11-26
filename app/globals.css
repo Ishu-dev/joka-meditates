@@ -391,3 +391,31 @@ html.motion-off *, html.motion-off *::before, html.motion-off *::after { animati
 html.motion-off :is(.sun, .room__disc) { transform: none; }
 html.motion-off.js .reveal { opacity: 1; transform: none; }
 html.motion-off :is(.photo--tilt-l, .photo--tilt-r) { transform: none; }
+
+/* Poll pages (/poll/<id>): the answer form beside the live tally. */
+.head--sm { font-size: var(--text-lead); max-width: none; }
+.poll { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--space-xl); row-gap: var(--space-2xl); align-items: start; }
+.poll__form { grid-column: 1 / span 6; }
+.poll__form .choose { grid-column: auto; }
+.poll__live { grid-column: 8 / -1; position: sticky; top: var(--space-xl); }
+.poll__where { display: block; font-weight: 400; font-size: var(--text-sm); color: var(--soft, var(--color-muted)); padding-block: 2px 6px; }
+.choose input:checked + label .poll__where { color: var(--color-ink-2); }
+.poll .choose label { border-radius: var(--radius-card); padding-block: var(--space-sm); }
+.poll__fields { display: grid; row-gap: var(--space-md); }
+.poll__field { display: grid; row-gap: var(--space-xs); font-weight: 600; }
+.poll__field input { min-height: 52px; padding-inline: var(--space-md); border: 2px solid var(--color-rule); border-radius: var(--space-xs); background: var(--color-paper); color: var(--color-ink); font-weight: 400; }
+.poll__field input:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; border-color: var(--color-ink); }
+.poll__trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.poll__status--error { color: var(--color-error); }
+.poll__status--done { color: var(--color-success); }
+.poll__tally { display: grid; margin: 0; padding: 0; list-style: none; }
+.poll__row { padding-block: var(--space-md); border-top: 2px solid var(--color-rule); }
+.poll__head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-md); font-weight: 700; }
+.poll__count { font: 800 var(--text-lead) / 1 var(--font-display); }
+.poll__bar { height: 10px; margin-block: var(--space-xs); border-radius: var(--radius-pill); background: var(--color-paper-2); overflow: hidden; }
+.poll__fill { display: block; height: 100%; border-radius: inherit; transition: width var(--dur-short) var(--ease-out); }
+.poll__fill--pond { background: var(--color-pond); }
+.poll__fill--accent { background: var(--color-accent); }
+@media (max-width: 60rem) {
+  .poll__form, .poll__live { grid-column: 1 / -1; position: static; }
+}
